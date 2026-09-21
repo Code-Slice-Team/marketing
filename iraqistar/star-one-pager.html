@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>IraqiStar — انضم كنجم</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap">
+<style>
+  /* One A4 sheet. Violet floods the masthead and the giving band and nothing else, so a
+     black-and-white photocopy still reads. Print backgrounds are forced on. */
+  @page { size: A4 portrait; margin: 0; }
+
+  :root {
+    --violet: #6430f0;
+    --violet-deep: #5427d9;
+    --ink: #0c0b16;
+    --pencil: #4f5368;
+    --faint: #666a80;
+    --line: #e2e0ec;
+  }
+
+  * { box-sizing: border-box; }
+  html { background: #eae8f3; }
+
+  body {
+    margin: 0;
+    font-family: "IBM Plex Sans Arabic", ui-sans-serif, system-ui, sans-serif;
+    color: var(--ink);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection { background: rgb(100 48 240 / 0.18); }
+
+  .sheet {
+    width: 210mm;
+    height: 297mm;
+    margin: 8mm auto;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 2mm 8mm rgb(12 11 22 / 0.14);
+  }
+
+  /* ---- masthead -------------------------------------------------------------------- */
+
+  .masthead { flex: none; background: var(--violet); color: #fff; padding: 7mm 14mm; }
+
+  .masthead__top { display: flex; align-items: center; justify-content: space-between; gap: 8mm; }
+
+  .lockup { display: flex; align-items: center; gap: 2.4mm; direction: ltr; }
+
+  .lockup__name {
+    font-family: "Geist", ui-sans-serif, system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 6.2mm;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .lockup__tm { font-size: 2.2mm; font-weight: 700; vertical-align: super; opacity: 0.75; }
+
+  .masthead__slogan { font-size: 3.1mm; font-weight: 500; opacity: 0.8; }
+
+  .masthead__body { margin-top: 5mm; display: flex; align-items: center; gap: 7mm; }
+
+  .masthead__words { flex: 1 1 auto; }
+
+  .masthead__headline { margin: 0; font-size: 9mm; font-weight: 700; line-height: 1.3; }
+
+  .masthead__sub { margin: 2.2mm 0 0; font-size: 4.2mm; font-weight: 500; line-height: 1.5; opacity: 0.92; }
+
+  .masthead__lead { margin: 3mm 0 0; font-size: 3.5mm; line-height: 1.7; opacity: 0.86; }
+
+  .masthead__claim {
+    margin: 2.8mm 0 0;
+    font-size: 3.6mm;
+    font-weight: 600;
+    line-height: 1.6;
+    padding-inline-start: 3mm;
+    border-inline-start: 1px solid rgb(255 255 255 / 0.45);
+  }
+
+  .scene { flex: none; width: 36mm; height: 44mm; display: block; }
+
+  /* ---- what you can offer ----------------------------------------------------------- */
+
+  .offerings { flex: none; display: flex; padding: 0 14mm; }
+
+  .offering { flex: 1 1 0; padding: 5.5mm 0 5mm; }
+
+  .offering + .offering {
+    border-inline-start: 1px solid var(--line);
+    padding-inline-start: 6.5mm;
+    margin-inline-start: 6.5mm;
+  }
+
+  .offering__head { display: flex; align-items: center; gap: 2.2mm; }
+  .offering__icon { color: var(--violet); flex: none; }
+  .offering__name { font-size: 4.2mm; font-weight: 700; line-height: 1.3; }
+  .offering__body { margin: 2mm 0 0; font-size: 3.3mm; line-height: 1.7; color: var(--pencil); }
+  .offering__body + .offering__body { margin-top: 1.4mm; }
+
+  /* ---- steps ------------------------------------------------------------------------ */
+
+  .steps { flex: 1 1 auto; padding: 5.5mm 14mm 0; border-top: 1px solid var(--line); }
+
+  .steps__title { margin: 0 0 4.2mm; font-size: 4.7mm; font-weight: 700; }
+
+  .step-list { list-style: none; margin: 0; padding: 0; position: relative; }
+
+  /* The spine the numbers sit on, stopping at the first and last number's centre. */
+  .step-list::before {
+    content: "";
+    position: absolute;
+    inset-block-start: 4mm;
+    height: calc(100% - 8mm);
+    inset-inline-start: 4mm;
+    width: 1px;
+    background: var(--line);
+  }
+
+  .step { position: relative; display: flex; gap: 4.6mm; padding-bottom: 3.2mm; }
+  .step:last-child { padding-bottom: 0; }
+
+  .step__number {
+    flex: none;
+    width: 8mm;
+    height: 8mm;
+    border-radius: 50%;
+    background: var(--violet);
+    color: #fff;
+    font-size: 3.7mm;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step__name { margin: 0.3mm 0 0; font-size: 4mm; font-weight: 700; line-height: 1.3; }
+  .step__body { margin: 1.2mm 0 0; font-size: 3.3mm; line-height: 1.7; color: var(--pencil); max-width: 154mm; }
+  .step__body b { font-weight: 600; color: var(--ink); }
+
+  /* ---- giving ----------------------------------------------------------------------- */
+
+  .giving {
+    flex: none;
+    margin: 4.5mm 14mm 0;
+    display: flex;
+    align-items: center;
+    gap: 4mm;
+    padding: 4mm 5.5mm;
+    border-radius: 3.5mm;
+    background: var(--violet);
+    color: #fff;
+  }
+
+  .giving__icon { flex: none; opacity: 0.92; }
+  .giving__title { margin: 0; font-size: 3.9mm; font-weight: 700; line-height: 1.35; }
+  .giving__body { margin: 1.1mm 0 0; max-width: 142mm; font-size: 3.2mm; line-height: 1.6; opacity: 0.92; }
+
+  /* ---- closing ---------------------------------------------------------------------- */
+
+  .closing {
+    flex: none;
+    margin: 0 14mm;
+    padding: 5.5mm 0 8mm;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8mm;
+  }
+
+  .closing__words { flex: 1 1 auto; }
+  .closing__title { margin: 0; font-size: 5mm; font-weight: 700; line-height: 1.3; }
+  .closing__body { margin: 1.8mm 0 0; max-width: 106mm; font-size: 3.3mm; line-height: 1.7; color: var(--pencil); }
+
+  .closing__cta {
+    margin: 3mm 0 0;
+    display: inline-block;
+    background: var(--violet);
+    color: #fff;
+    font-size: 3.6mm;
+    font-weight: 700;
+    padding: 2.4mm 5.2mm;
+    border-radius: 999px;
+  }
+
+  .closing__note { margin: 2.2mm 0 0; max-width: 102mm; font-size: 2.9mm; line-height: 1.5; color: var(--faint); }
+
+  .apply { flex: none; text-align: center; }
+  .apply__qr { width: 26mm; height: 26mm; display: block; }
+  .apply__url {
+    margin: 1.6mm 0 0;
+    font-family: "Geist", ui-sans-serif, system-ui, sans-serif;
+    font-size: 3mm;
+    font-weight: 700;
+    color: var(--violet);
+    direction: ltr;
+  }
+
+  @media print {
+    html { background: none; }
+    .sheet { margin: 0; box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="sheet">
+
+  <header class="masthead">
+    <div class="masthead__top">
+      <div class="lockup">
+        <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="#ffffff" fill-rule="evenodd" d="M12.00 0.80 L14.49 5.99 L19.92 4.08 L18.01 9.51 L23.20 12.00 L18.01 14.49 L19.92 19.92 L14.49 18.01 L12.00 23.20 L9.51 18.01 L4.08 19.92 L5.99 14.49 L0.80 12.00 L5.99 9.51 L4.08 4.08 L9.51 5.99 Z M9.40 8.10 L16.40 12.00 L9.40 15.90 Z"/>
+        </svg>
+        <span class="lockup__name">IraqiStar<span class="lockup__tm">™</span></span>
+      </div>
+      <span class="masthead__slogan">من نجوم العراق… إليك</span>
+    </div>
+
+    <div class="masthead__body">
+      <div class="masthead__words">
+        <h1 class="masthead__headline">قرّب جمهورك منك</h1>
+        <p class="masthead__sub">حوّل لحظاتهم الخاصة إلى ذكريات لا تُنسى.</p>
+        <p class="masthead__lead">مع نجم العراق™، يمكن لجمهورك أن يطلب منك رسالة فيديو شخصية لمناسبة تخصّه، أو يحجز جلسة فيديو مباشرة معك.</p>
+        <p class="masthead__claim">أنت تختار خدماتك، وتحدد أسعارك، وتقرر الطلبات التي تناسبك. ونحن نتكفّل بالباقي.</p>
+      </div>
+
+      <!-- A fan's request arriving on a phone. The figure is a silhouette on purpose: no real or
+           invented star appears anywhere on this sheet. -->
+      <svg class="scene" viewBox="0 0 160 195" fill="none" aria-hidden="true">
+        <rect x="18" y="4" width="124" height="187" rx="15" fill="#ffffff"/>
+        <rect x="26" y="16" width="108" height="118" rx="8" fill="#e6e1fb"/>
+        <clipPath id="screen"><rect x="26" y="16" width="108" height="118" rx="8"/></clipPath>
+        <g clip-path="url(#screen)">
+          <circle cx="80" cy="70" r="19" fill="#6430f0"/>
+          <path d="M80 96c17.1 0 31 13.9 31 31v14H49v-14c0-17.1 13.9-31 31-31Z" fill="#6430f0"/>
+        </g>
+        <circle cx="117" cy="119" r="14.5" fill="#ffffff"/>
+        <path d="M113.6 112.2 123.4 119l-9.8 6.8v-13.6Z" fill="#6430f0"/>
+        <rect x="26" y="145" width="76" height="7" rx="3.5" fill="#e6e1fb"/>
+        <rect x="26" y="158" width="56" height="7" rx="3.5" fill="#e6e1fb"/>
+        <rect x="26" y="172" width="108" height="11" rx="5.5" fill="#6430f0"/>
+        <path fill="#ffffff" fill-rule="evenodd" d="M18.6 22.0 21.1 27.2 26.5 25.3 24.6 30.7 29.8 33.2 24.6 35.7 26.5 41.1 21.1 39.2 18.6 44.4 16.1 39.2 10.7 41.1 12.6 35.7 7.4 33.2 12.6 30.7 10.7 25.3 16.1 27.2 Z"/>
+      </svg>
+    </div>
+  </header>
+
+  <section class="offerings" aria-label="ماذا يمكنك أن تقدّم">
+    <div class="offering">
+      <div class="offering__head">
+        <svg class="offering__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20.4 14.5 16 10 4 20"/>
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <circle cx="9" cy="9" r="2"/>
+        </svg>
+        <h2 class="offering__name">رسالة فيديو شخصية</h2>
+      </div>
+      <p class="offering__body">عيد ميلاد، تخرّج، زواج، خطوبة، تهنئة، تشجيع، أو مفاجأة لشخص عزيز.</p>
+      <p class="offering__body">يصلك الطلب وتفاصيله، وتسجّل الفيديو بسهولة من هاتفك.</p>
+    </div>
+
+    <div class="offering">
+      <div class="offering__head">
+        <svg class="offering__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="m22 8-6 4 6 4V8Z"/>
+          <rect x="2" y="6" width="14" height="12" rx="2"/>
+        </svg>
+        <h2 class="offering__name">لقاء مباشر مع جمهورك</h2>
+      </div>
+      <p class="offering__body">خصّص أوقاتاً تناسبك لجلسات فيديو مباشرة وخاصة مع جمهورك.</p>
+      <p class="offering__body">أنت تحدد الأوقات المتاحة ومدة الجلسة وسعرها.</p>
+    </div>
+  </section>
+
+  <section class="steps" aria-labelledby="steps-title">
+    <h2 class="steps__title" id="steps-title">كيف يعمل نجم العراق؟</h2>
+    <ol class="step-list">
+      <li class="step">
+        <span class="step__number">1</span>
+        <div>
+          <h3 class="step__name">انضم إلينا</h3>
+          <p class="step__body">أرسل معلوماتك وصورتك وفيديو تعريف قصير. بعد مراجعة حسابك والموافقة عليه، يصبح ملفك متاحاً للجمهور.</p>
+        </div>
+      </li>
+      <li class="step">
+        <span class="step__number">2</span>
+        <div>
+          <h3 class="step__name">حدد أسعارك</h3>
+          <p class="step__body">أنت من يحدد سعر رسالة الفيديو وسعر الجلسة المباشرة، ويمكنك تعديلهما لاحقاً. <b>75% من كل طلب لك.</b></p>
+        </div>
+      </li>
+      <li class="step">
+        <span class="step__number">3</span>
+        <div>
+          <h3 class="step__name">يصلك الطلب</h3>
+          <p class="step__body">حين يطلب أحد معجبيك رسالة، يصلك إشعار بتفاصيل المناسبة وما يريد أن تقوله. <b>الطلب لا يناسبك؟ يمكنك رفضه.</b></p>
+        </div>
+      </li>
+      <li class="step">
+        <span class="step__number">4</span>
+        <div>
+          <h3 class="step__name">سجّل من هاتفك</h3>
+          <p class="step__body">لا تحتاج إلى استوديو ولا معدات. سجّل رسالتك من هاتفك وأرسلها خلال <b>7 أيام</b>.</p>
+        </div>
+      </li>
+      <li class="step">
+        <span class="step__number">5</span>
+        <div>
+          <h3 class="step__name">استلم أرباحك</h3>
+          <p class="step__body">بعد إكمال الطلب يُضاف مستحقك إلى حسابك، وتتابع طلباتك وأرباحك كلها من مكان واحد.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <div class="giving">
+    <svg class="giving__icon" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+    </svg>
+    <div>
+      <p class="giving__title">كل طلب يحمل فرحتين</p>
+      <p class="giving__body">فرحة لمعجب برسالة خاصة من نجمه، وفرحة تصل لمن يحتاج: نخصص جزءاً من أرباح كل طلب لدعم الأعمال الخيرية في العراق.</p>
+    </div>
+  </div>
+
+  <footer class="closing">
+    <div class="closing__words">
+      <h2 class="closing__title">جمهورك موجود. قرّبه منك.</h2>
+      <p class="closing__body">حوّل محبتهم ودعمهم إلى تجربة شخصية يتذكرونها، وحقق دخلاً إضافياً في وقتك وبالسعر الذي تختاره.</p>
+      <span class="closing__cta">انضم كنجم الآن</span>
+      <p class="closing__note">التقديم مجاني، وأنت دائماً صاحب القرار في الطلبات التي تقبلها.</p>
+    </div>
+
+    <div class="apply">
+      <svg class="apply__qr" viewBox="0 0 29 29" shape-rendering="crispEdges" role="img" aria-label="رمز الاستجابة السريعة لصفحة الانضمام">
+        <rect width="29" height="29" fill="#ffffff"/>
+        <path fill="#0c0b16" d="M0 0h7v1h-7zM8 0h4v1h-4zM14 0h1v1h-1zM19 0h2v1h-2zM22 0h7v1h-7zM0 1h1v1h-1zM6 1h1v1h-1zM9 1h4v1h-4zM18 1h1v1h-1zM22 1h1v1h-1zM28 1h1v1h-1zM0 2h1v1h-1zM2 2h3v1h-3zM6 2h1v1h-1zM10 2h1v1h-1zM12 2h4v1h-4zM22 2h1v1h-1zM24 2h3v1h-3zM28 2h1v1h-1zM0 3h1v1h-1zM2 3h3v1h-3zM6 3h1v1h-1zM10 3h1v1h-1zM14 3h4v1h-4zM22 3h1v1h-1zM24 3h3v1h-3zM28 3h1v1h-1zM0 4h1v1h-1zM2 4h3v1h-3zM6 4h1v1h-1zM8 4h3v1h-3zM12 4h1v1h-1zM15 4h1v1h-1zM19 4h2v1h-2zM22 4h1v1h-1zM24 4h3v1h-3zM28 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM8 5h1v1h-1zM10 5h1v1h-1zM12 5h5v1h-5zM18 5h1v1h-1zM22 5h1v1h-1zM28 5h1v1h-1zM0 6h7v1h-7zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM22 6h7v1h-7zM9 7h1v1h-1zM11 7h1v1h-1zM14 7h2v1h-2zM18 7h2v1h-2zM1 8h7v1h-7zM9 8h4v1h-4zM14 8h1v1h-1zM16 8h2v1h-2zM20 8h1v1h-1zM23 8h2v1h-2zM28 8h1v1h-1zM1 9h3v1h-3zM5 9h1v1h-1zM8 9h1v1h-1zM11 9h1v1h-1zM13 9h1v1h-1zM15 9h2v1h-2zM18 9h9v1h-9zM28 9h1v1h-1zM0 10h3v1h-3zM5 10h3v1h-3zM10 10h1v1h-1zM12 10h1v1h-1zM16 10h1v1h-1zM18 10h1v1h-1zM20 10h4v1h-4zM26 10h1v1h-1zM1 11h1v1h-1zM3 11h1v1h-1zM8 11h2v1h-2zM11 11h1v1h-1zM13 11h4v1h-4zM21 11h3v1h-3zM25 11h1v1h-1zM27 11h1v1h-1zM0 12h3v1h-3zM4 12h3v1h-3zM8 12h1v1h-1zM10 12h2v1h-2zM13 12h2v1h-2zM17 12h1v1h-1zM20 12h2v1h-2zM23 12h1v1h-1zM26 12h3v1h-3zM1 13h3v1h-3zM5 13h1v1h-1zM10 13h1v1h-1zM13 13h3v1h-3zM17 13h6v1h-6zM24 13h2v1h-2zM27 13h2v1h-2zM1 14h1v1h-1zM6 14h1v1h-1zM9 14h1v1h-1zM11 14h1v1h-1zM14 14h1v1h-1zM16 14h1v1h-1zM20 14h2v1h-2zM23 14h1v1h-1zM27 14h1v1h-1zM0 15h4v1h-4zM5 15h1v1h-1zM7 15h1v1h-1zM9 15h1v1h-1zM14 15h3v1h-3zM18 15h1v1h-1zM24 15h2v1h-2zM27 15h2v1h-2zM0 16h3v1h-3zM4 16h5v1h-5zM12 16h3v1h-3zM17 16h1v1h-1zM19 16h1v1h-1zM25 16h3v1h-3zM0 17h2v1h-2zM4 17h2v1h-2zM7 17h1v1h-1zM9 17h1v1h-1zM13 17h1v1h-1zM15 17h3v1h-3zM19 17h2v1h-2zM22 17h1v1h-1zM24 17h1v1h-1zM27 17h2v1h-2zM0 18h1v1h-1zM4 18h5v1h-5zM11 18h2v1h-2zM18 18h1v1h-1zM20 18h1v1h-1zM22 18h5v1h-5zM0 19h1v1h-1zM2 19h1v1h-1zM4 19h1v1h-1zM7 19h1v1h-1zM11 19h1v1h-1zM13 19h1v1h-1zM16 19h1v1h-1zM19 19h2v1h-2zM22 19h2v1h-2zM25 19h1v1h-1zM27 19h2v1h-2zM0 20h1v1h-1zM4 20h4v1h-4zM10 20h1v1h-1zM13 20h2v1h-2zM17 20h1v1h-1zM19 20h6v1h-6zM26 20h1v1h-1zM28 20h1v1h-1zM8 21h7v1h-7zM16 21h2v1h-2zM20 21h1v1h-1zM24 21h2v1h-2zM28 21h1v1h-1zM0 22h7v1h-7zM8 22h2v1h-2zM13 22h3v1h-3zM18 22h3v1h-3zM22 22h1v1h-1zM24 22h1v1h-1zM0 23h1v1h-1zM6 23h1v1h-1zM8 23h1v1h-1zM14 23h3v1h-3zM19 23h2v1h-2zM24 23h2v1h-2zM0 24h1v1h-1zM2 24h3v1h-3zM6 24h1v1h-1zM8 24h2v1h-2zM12 24h1v1h-1zM14 24h2v1h-2zM18 24h1v1h-1zM20 24h8v1h-8zM0 25h1v1h-1zM2 25h3v1h-3zM6 25h1v1h-1zM8 25h2v1h-2zM12 25h2v1h-2zM15 25h1v1h-1zM18 25h4v1h-4zM23 25h1v1h-1zM25 25h2v1h-2zM0 26h1v1h-1zM2 26h3v1h-3zM6 26h1v1h-1zM8 26h1v1h-1zM10 26h3v1h-3zM14 26h2v1h-2zM17 26h11v1h-11zM0 27h1v1h-1zM6 27h1v1h-1zM8 27h1v1h-1zM14 27h2v1h-2zM20 27h2v1h-2zM24 27h2v1h-2zM27 27h1v1h-1zM0 28h7v1h-7zM9 28h1v1h-1zM12 28h6v1h-6zM21 28h2v1h-2zM24 28h1v1h-1zM26 28h1v1h-1z"/>
+      </svg>
+      <p class="apply__url">iraqistar.com/ar/apply</p>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>
