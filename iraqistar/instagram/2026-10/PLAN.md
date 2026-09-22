@@ -1,50 +1,50 @@
 # IraqiStar Instagram plan: 24 Sep to 20 Oct 2026
 
-All posts publish at 20:00 Asia/Baghdad. Status: awaiting approval.
-Audience: customers only (stars join by invitation). No pricing posts. Giving banner on every post.
+All posts publish at 20:00 Asia/Baghdad. Scheduled in Metricool.
+Audience: customers only. Core product (star videos) kept as a mystery until the reveal on post 20; Kids, experts and business explicit. No pricing. Giving banner on every post.
 
 ## 01 · 2026-09-24 · carousel · أحلى هدية ما تنلفّ بورق
 
-Files: post-01-slide1.png, post-01-slide2.png, post-01-slide3.png, post-01-slide4.png, post-01-slide5.png
+Files: post-01-slide1.png, post-01-slide2.png, post-01-slide3.png, post-01-slide4.png
 
 **Caption**
 
-أحلى هدية ما تنلفّ بورق.
+أحلى هدية ما تنلفّ بورق، وما تنباع بأي محل.
 
-تخيّل صديقك يفتح رابط، ويلگه النجم اللي يحبه يحچي وياه باسمه. يبارك له بعيد ميلاده، بتخرّجه، أو بس لأنك تحبه.
+تنرسل برابط، وتنحفظ بالذاكرة. باسم اللي تحبه، ومن شخص ما يتوقعه.
 
-هذا هو نجم العراق: فيديو خاص من نجوم العراق لمن تحب. تختار النجم، تكتب شتريده يگول، ويوصلك الفيديو برابط تدزّه واتساب.
+شنو هي؟ قريباً تعرف.
 
-قريباً.
+نجم العراق. قريباً.
 من نجوم العراق… إليك
 
 مع كل طلب، نخصص جزءاً من أرباحنا لدعم الأعمال الخيرية في العراق.
 
-A personal video from Iraq's stars, made for someone you love. Coming soon.
+Something new is coming to Iraq. Follow to be first to know.
 
 **First comment**
 
-#نجم_العراق #IraqiStar #العراق #بغداد #هدية #هدايا #مفاجأة #عيد_ميلاد
+#نجم_العراق #IraqiStar #العراق #بغداد #هدية #هدايا #مفاجأة #قريبا
 
 ---
 
-## 02 · 2026-09-25 · single · منو النجم اللي تتمنى؟
+## 02 · 2026-09-25 · single · منو نجمك؟
 
 Files: post-02.png
 
 **Caption**
 
-سؤال واحد، وجوابك يفرق.
+سؤال واحد.
 
-منو النجم العراقي اللي تتمنى يوصلك منه فيديو باسمك؟ فنان، لاعب، كوميديان، صانع محتوى.
+منو النجم العراقي اللي ما تفوّت له شي؟ فنان، لاعب، كوميديان، صانع محتوى.
 
-اكتب اسمه بالتعليقات. الأسماء الأكثر طلباً نبدي بيها.
+اكتب اسمه بالتعليقات. راح تفهم ليش نسأل، قريباً.
 
 نجم العراق. قريباً.
 
 مع كل طلب، نخصص جزءاً من أرباحنا لدعم الأعمال الخيرية في العراق.
 
-Which Iraqi star would you want a personal video from? Tell us in the comments.
+Which Iraqi star do you never miss? Tell us. You'll see why soon.
 
 **First comment**
 
@@ -54,17 +54,17 @@ Which Iraqi star would you want a personal video from? Tell us in the comments.
 
 ## 03 · 2026-09-26 · reel · هاي ما عنده
 
-Files: post-03-reel.mp4, post-03-cover.png
+Files: post-03-cover.png, post-03-reel.mp4
 
 **Caption**
 
 عطر؟ عنده. ساعة؟ عنده.
-فيديو باسمه من نجمه المفضّل؟ هاي ما عنده.
+شي ما يخطر على باله؟ هاي ما عنده.
 
-هدية ما تتكرر، وما تنحط بالدرج.
+قريباً تعرف شنو هي.
 
 نجم العراق. قريباً.
-تابعنا حتى تكون أول من يطلب.
+تابعنا حتى تكون أول من يعرف.
 
 مع كل طلب، نخصص جزءاً من أرباحنا لدعم الأعمال الخيرية في العراق.
 
@@ -76,29 +76,28 @@ The gift they don't already have. Coming soon.
 
 ---
 
-## 04 · 2026-09-28 · carousel · شتكتب للنجم؟
+## 04 · 2026-09-28 · carousel · أربع تلميحات
 
 Files: post-04-slide1.png, post-04-slide2.png, post-04-slide3.png, post-04-slide4.png
 
 **Caption**
 
-الطلب الحلو يطلع فيديو أحلى.
+أربع تلميحات عن الشي الجاي:
 
-من تطلب فيديو من نجم، أربع أشياء تفرق:
-1. الاسم، ومثل ما ينلفظ
-2. المناسبة
-3. تفصيلة تخصّه: لقبه، فريقه، شي يضحّكه
-4. النبرة: جدّية، مزاح، أو من القلب
+1. ما ينلفّ بورق، وما ينباع بأي محل
+2. يوصل برابط، من موبايلك لموبايله
+3. باسم اللي تحبه، مو نسخة عامة
+4. من شخص ما يتوقعه أبداً
 
-احفظ البوست، راح تحتاجه قريب.
+خمّنت؟ اكتب تخمينك بالتعليقات.
 
 مع كل طلب، نخصص جزءاً من أرباحنا لدعم الأعمال الخيرية في العراق.
 
-Four things to tell the star so the video lands. Save this one.
+Four hints about what's coming. Guess in the comments.
 
 **First comment**
 
-#نجم_العراق #IraqiStar #العراق #بغداد #هدية #مفاجأة
+#نجم_العراق #IraqiStar #العراق #بغداد #هدية #مفاجأة #قريبا
 
 ---
 
@@ -132,7 +131,7 @@ Files: post-06-slide1.png, post-06-slide2.png, post-06-slide3.png, post-06-slide
 
 **Caption**
 
-نجم العراق مو بس رسائل من النجوم.
+على نجم العراق، مو بس مفاجآت.
 
 أكو جلسات فيديو مباشرة وخاصة مع مدرّسين ومدرّبين وأصحاب خبرة من العراق: درس خصوصي، تدريب، نصيحة لمشروعك، أو استشارة مهنية. الجلسة تصل إلى ساعة، وتدخلها من المتصفح بدون أي تطبيق.
 
@@ -140,7 +139,7 @@ Files: post-06-slide1.png, post-06-slide2.png, post-06-slide3.png, post-06-slide
 
 مع كل طلب، نخصص جزءاً من أرباحنا لدعم الأعمال الخيرية في العراق.
 
-Not only stars. Private live video sessions with Iraqi teachers, coaches and experts. Coming soon.
+Private live video sessions with Iraqi teachers, coaches and experts. Coming soon.
 
 **First comment**
 
@@ -156,15 +155,15 @@ Files: post-07.png
 
 للي عايشين برّا.
 
-ما تگدر تحضر عيد ميلاد أمك، بس تگدر توصّل لها فرحة ما تتوقعها: فيديو باسمها من نجم تحبه وتتابعه من سنين.
+ما تگدر تحضر عيد ميلاد أمك، بس تگدر توصّل لها فرحة ما تتوقعها. برابط، وتفتحه بدون حساب ولا تسجيل.
 
-يوصلها برابط، وتفتحه بدون حساب ولا تسجيل.
+شنو هي؟ قريباً.
 
-نجم العراق. قريباً.
+نجم العراق.
 
 مع كل طلب، نخصص جزءاً من أرباحنا لدعم الأعمال الخيرية في العراق.
 
-Far from home? Send your family a moment they won't expect. Coming soon.
+Far from home? Soon you can send your family a moment they won't expect.
 
 **First comment**
 
@@ -220,7 +219,7 @@ On IraqiStar Kids a child never joins alone. A parent books the seat and sits be
 
 ## 10 · 2026-10-06 · reel · ماما، شأسوي؟
 
-Files: post-10-reel.mp4, post-10-cover.png
+Files: post-10-cover.png, post-10-reel.mp4
 
 **Caption**
 
@@ -247,31 +246,31 @@ Files: post-11.png
 
 **Caption**
 
-مو كل فيديو تهنئة.
+مو كل مفاجأة تهنئة.
 
-أكو صديق يستاهل مقلب، والمقلب يصير أحلى من يجي من كوميديان يعرفه ويحبه. باسمه، وبالتفاصيل اللي بس أنت تعرفها.
+أكو صديق يستاهل مقلب، وأكو طريقة بعد ما جرّبها أحد بالعراق. باسمه، وبالتفاصيل اللي بس أنت تعرفها.
 
-أنت بس صوّر وجهه من يشوفها.
+قريباً. وأنت بس صوّر وجهه.
 
 تاگ صديقك اللي يستاهل.
 
 مع كل طلب، نخصص جزءاً من أرباحنا لدعم الأعمال الخيرية في العراق.
 
-Not every video is a greeting. Some friends deserve a roast. Tag yours.
+Some friends deserve a prank nobody has tried yet. Tag yours.
 
 **First comment**
 
-#نجم_العراق #IraqiStar #العراق #بغداد #مقلب #كوميديا_عراقية #ضحك
+#نجم_العراق #IraqiStar #العراق #بغداد #مقلب #ضحك #قريبا
 
 ---
 
-## 12 · 2026-10-09 · single · أول فيديو، لمنو؟
+## 12 · 2026-10-09 · single · أول مفاجأة، لمنو؟
 
 Files: post-12.png
 
 **Caption**
 
-من يفتح نجم العراق، أول فيديو تطلبه لمنو؟
+من يفتح نجم العراق، أول مفاجأة تسويها لمنو؟
 
 أ. أمي أو أبوي
 ب. صديقي
@@ -282,7 +281,7 @@ Files: post-12.png
 
 مع كل طلب، نخصص جزءاً من أرباحنا لدعم الأعمال الخيرية في العراق.
 
-Who gets your first video? Answer in the comments.
+Who gets your first surprise? Answer in the comments.
 
 **First comment**
 
@@ -334,27 +333,27 @@ One topic you don't get, and an exam coming up. Book an hour with a teacher. Com
 
 ---
 
-## 15 · 2026-10-13 · carousel · أسئلة قبل ما تطلب
+## 15 · 2026-10-13 · carousel · أسئلة وصلتنا
 
 Files: post-15-slide1.png, post-15-slide2.png, post-15-slide3.png, post-15-slide4.png, post-15-slide5.png
 
 **Caption**
 
-ثلاث أسئلة توصلنا هواية:
+أسئلة وصلتنا على الخاص، وأجوبتها… تقريباً:
 
-اللي أهديه الفيديو يحتاج حساب؟ لا، يفتح الرابط ويشوفه مباشرة.
-أگدر أحمّل الفيديو؟ إي، حمّله وشاركه وين ما تريد.
-وإذا هو برّا العراق؟ عادي، الرابط يفتح من أي مكان.
+شنو الشي الجاي؟ مفاجأة. ما تنلفّ بورق، وتوصل برابط.
+لمنو؟ لمن تحب. باسمه، ومن شخص ما يتوقعه.
+يمتى؟ قريب.
 
-عندك سؤال ثاني؟ اكتبه بالتعليقات.
+عندك تخمين؟ اكتبه بالتعليقات.
 
 مع كل طلب، نخصص جزءاً من أرباحنا لدعم الأعمال الخيرية في العراق.
 
-Three questions people ask before ordering, answered.
+Your questions, answered. Almost.
 
 **First comment**
 
-#نجم_العراق #IraqiStar #العراق #بغداد #هدية #مفاجأة
+#نجم_العراق #IraqiStar #العراق #بغداد #مفاجأة #قريبا
 
 ---
 
@@ -366,7 +365,7 @@ Files: post-16.png
 
 هديتك توصل لاثنين.
 
-الأول تعرفه: اللي راح يفتح الفيديو ويسمع اسمه من نجمه.
+الأول تعرفه: اللي راح يفتح الرابط ويتفاجأ.
 الثاني ما تعرفه: مع كل طلب، نخصص جزءاً من أرباحنا لدعم الأعمال الخيرية في العراق.
 
 نجم العراق. قريباً.
@@ -381,14 +380,14 @@ Every order gives twice: part of our earnings supports charitable work in Iraq.
 
 ## 17 · 2026-10-16 · reel · مناسبتك شنو؟
 
-Files: post-17-reel.mp4, post-17-cover.png
+Files: post-17-cover.png, post-17-reel.mp4
 
 **Caption**
 
 عيد ميلاد. تخرّج. خطوبة. نجاح. عيد.
 أو بدون مناسبة أصلاً.
 
-لكلها، فيديو من نجم يحبه، وباسمه.
+لكلها، مفاجأة ما تتكرر. باسمه، ومن شخص ما يتوقعه.
 
 مناسبتك الجاية شنو؟ اكتبها بالتعليقات.
 
@@ -410,7 +409,7 @@ Files: post-18.png
 
 يعرف تشكيلة الفريق، ونتائج آخر عشر مباريات، ومنو سجّل بأي دقيقة.
 
-هالمرة خلّي لاعبه المفضّل يعرف اسمه هو.
+هالمرة، الدور عليه يتفاجأ.
 
 تاگ عاشق الكرة اللي ببالك.
 
@@ -418,7 +417,7 @@ Files: post-18.png
 
 مع كل طلب، نخصص جزءاً من أرباحنا لدعم الأعمال الخيرية في العراق.
 
-He knows the whole line-up by heart. Let his favourite player learn his name.
+He knows the whole line-up by heart. This time, the surprise is on him.
 
 **First comment**
 
@@ -452,27 +451,30 @@ How booking a live session works: pick, pay, join from your browser.
 
 ---
 
-## 20 · 2026-10-20 · single · الباب يفتح قريب
+## 20 · 2026-10-20 · carousel · الكشف: فيديو من نجمك
 
-Files: post-20.png
+Files: post-20-slide1.png, post-20-slide2.png, post-20-slide3.png, post-20-slide4.png
 
 **Caption**
 
-شهر كامل حچينا بيه عن نجم العراق: الهدايا، النجوم، الخبراء، وحصص الأطفال.
+تذكرون الهدية اللي ما تنلفّ بورق، وتوصل برابط، وباسم اللي تحبه، ومن شخص ما يتوقعه؟
 
-الباب يفتح قريب.
+هذي هي: فيديو خاص من نجمه المفضّل، باسمه ولمناسبته. فنان، لاعب، كوميديان أو صانع محتوى، يحچي وياه هو.
 
+تختار النجم، تكتب شتريده يگول، ويوصلك الفيديو برابط تدزّه واتساب.
+
+نجم العراق. الباب يفتح قريب.
 تابعنا وفعّل الإشعارات حتى يوصلك الخبر أول، وتكون أول من يطلب.
 
 من نجوم العراق… إليك
 
 مع كل طلب، نخصص جزءاً من أرباحنا لدعم الأعمال الخيرية في العراق.
 
-The doors open soon. Follow and turn on notifications to be first in.
+The reveal: a personal video from their favourite Iraqi star. Doors open soon.
 
 **First comment**
 
-#نجم_العراق #IraqiStar #العراق #بغداد #قريبا #هدية
+#نجم_العراق #IraqiStar #العراق #بغداد #نجوم_العراق #مشاهير_العراق #هدية #مفاجأة #قريبا
 
 ---
 

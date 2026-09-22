@@ -65,6 +65,14 @@ h2{font-size:80px;line-height:1.3;font-weight:700}
 .url{font-family:Geist;font-size:36px;font-weight:500;margin-top:40px;direction:ltr}
 .light .url{color:var(--pencil)}.dark .url{color:var(--night-pencil)}
 .datechip{font-size:34px;font-weight:500;padding:14px 36px;border-radius:999px;border:2px solid var(--night-line);background:#13121e;display:inline-block;margin-bottom:48px}
+/* mystery card */
+.qcard{width:440px;height:600px;border-radius:40px;background:#13121e;border:2px solid #33324a;position:relative;margin:0 auto 40px;display:grid;place-items:center}
+.qcard .q{font-family:Geist;font-weight:700;font-size:260px;line-height:1;color:#6c3af9}
+.qchip{position:absolute;padding:16px 28px;border-radius:999px;font-size:30px;font-weight:500;background:#1c1b2a;border:2px solid #33324a;color:#f7f7fb;white-space:nowrap}
+.qchip.to{top:40px;right:-60px;background:#6430f0;border-color:#6430f0}
+.qchip.occ{bottom:120px;left:-90px}
+.qbar{position:absolute;bottom:44px;left:40px;right:40px;height:8px;border-radius:8px;background:#33324a}
+.qbar i{display:block;width:38%;height:100%;border-radius:8px;background:#a58bff}
 /* giving strip */
 .give{position:absolute;left:0;right:0;bottom:0;height:88px;z-index:3;display:flex;align-items:center;justify-content:center;gap:16px;background:#6430f0;color:#fff;font-size:29px;font-weight:500}
 .give svg{width:34px;height:34px;flex:none}
@@ -158,6 +166,10 @@ function slideHtml(s, i, total) {
     mid = `<h2>${s.h1}<br><span class="v">${s.h2}</span></h2><div class="steps ${s.compact ? "compact" : ""}">${s.steps.map(([b, sp], k) => `<div class="step"><div class="num ${s.marker === "dot" ? "dot" : ""}">${s.marker === "check" ? check : s.marker === "dot" ? "" : st + k}</div><div><b>${b}</b><span>${sp}</span></div></div>`).join("")}</div>`;
   } else if (s.kind === "ask") {
     mid = `<h1 class="m">${s.h1}<br><span class="v">${s.h2}</span></h1>${s.sub ? `<p class="lead">${s.sub}</p>` : ""}${s.options ? `<div class="opts">${s.options.map((o, k) => `<div class="opt"><i>${AR[k]}</i>${o}</div>`).join("")}</div>` : ""}`;
+  } else if (s.kind === "qcard") {
+    mid = `<div class="qcard"><div class="q">?</div><div class="qchip to">${s.to}</div><div class="qchip occ">${s.occ}</div><div class="qbar"><i></i></div></div><h2 style="text-align:center">${s.h1}<br><span class="v">${s.h2}</span></h2>`;
+  } else if (s.kind === "vcard") {
+    mid = `<div class="qcard">${mark("", "#6c3af9", "width:150px;height:150px")}<div class="qchip to">${s.to}</div><div class="qchip occ">${s.occ}</div><div class="qbar"><i></i></div></div><p style="text-align:center;font-size:24px;color:#8a8fa6;margin:-24px 0 32px">مثال توضيحي</p><h2 style="text-align:center">${s.h1}<br><span class="v">${s.h2}</span></h2>`;
   } else if (s.kind === "qa") {
     mid = `<div class="q">${s.q}</div><div class="a v">${s.a}</div><p class="lead">${s.sub}</p>`;
   } else if (s.kind === "big") {
