@@ -1,0 +1,32 @@
+IraqiStar illustrated reel v1 — 2026-09-24
+
+Final file: IraqiStar-illustrated-reel-v1.mp4
+Duration: 48.000 seconds
+Dimensions: 1080 x 1920 (9:16)
+Frame rate: 30 fps
+Decoded video frames: 1440
+Video: H.264 High, yuv420p
+Audio: AAC LC, 48000 Hz, stereo
+Fast-start MP4 metadata: enabled
+
+Entire initial multiplexed file decoded with ffmpeg without errors.
+Final audio-adjusted export: full video frame count and audio analysis completed without errors.
+Measured final encoded audio:
+  Integrated loudness: -16.23 LUFS
+  True peak: -2.00 dBTP
+  Loudness range: 4.20 LU
+The final mix includes encoding headroom to avoid AAC peak overshoot.
+
+12 representative pre-render frames inspected for typography, composition and overflow.
+12 representative frames from the exported video inspected in IraqiStar-storyboard.jpg.
+Arabic is correctly shaped; all scene headlines fit the frame.
+Final card shows: IraqiStar, موهبتك إلها مكان, قدّم هسه,
+iraqistar.com/ar/apply, @iraqistar.iq, للنجوم وصنّاع المحتوى.
+
+Only illustrated objects, icons, typography and original brand assets are used.
+No photography, real people, AI people, human avatars or voiceover.
+Music is an original synthesized 120 BPM composition without third-party samples.
+No app code or live site settings were changed by this creative task.
+
+Publication remains separate. The application URL was gated during the earlier
+public-site review and should be checked before launching the campaign.

@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>IraqiStar Kids — tri-fold (US, English + Arabic)</title>
+<script>
+  // ?mode=preview gives a plain US Letter page (trimmed, no marks) for screens and email;
+  // the default is the print-shop file: Letter trim, 1/8 in bleed, crop and fold marks in a 10 mm slug.
+  (function () {
+    var preview = new URLSearchParams(location.search).get("mode") === "preview";
+    document.documentElement.className = preview ? "preview" : "print";
+    var page = document.createElement("style");
+    page.textContent = preview ? "@page{size:279.4mm 215.9mm;margin:0}" : "@page{size:299.4mm 235.9mm;margin:0}";
+    document.head.appendChild(page);
+  })();
+</script>
+<style>
+  @font-face { font-family: "IBM Plex Sans Arabic"; src: url(fonts/IBMPlexSansArabic-Regular.ttf); font-weight: 400; }
+  @font-face { font-family: "IBM Plex Sans Arabic"; src: url(fonts/IBMPlexSansArabic-Medium.ttf); font-weight: 500; }
+  @font-face { font-family: "IBM Plex Sans Arabic"; src: url(fonts/IBMPlexSansArabic-SemiBold.ttf); font-weight: 600; }
+  @font-face { font-family: "IBM Plex Sans Arabic"; src: url(fonts/IBMPlexSansArabic-Bold.ttf); font-weight: 700; }
+  @font-face { font-family: "Geist"; src: url(fonts/Geist-SemiBold.ttf); font-weight: 600; }
+  @font-face { font-family: "Geist"; src: url(fonts/Geist-Bold.ttf); font-weight: 700; }
+
+  :root {
+    --sun: #ffd23f; --sky: #5cc8ff; --grass: #52d28f; --berry: #ff7a9c; --tangerine: #ffa04d;
+    --ink: #1d1640; --ink-soft: rgb(29 22 64 / 0.8); --paper: #fff; --line: 0.6mm;
+    --bleed: 3.175mm; /* 1/8 in */
+    --pA: 92.08mm;  /* 3.625 in, the panel that folds in */
+    --pB: 93.66mm;  /* 3.6875 in */
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: "IBM Plex Sans Arabic", sans-serif; color: var(--ink); background: #fff; }
+  @media screen {
+    body { background: #d9d6e4; display: grid; justify-content: center; gap: 12mm; padding: 12mm 0; }
+    .sheet { box-shadow: 0 2mm 8mm rgb(29 22 64 / 0.18); }
+  }
+
+  /* ---------- sheet geometry: US Letter landscape 11 x 8.5 in ---------- */
+  .sheet { position: relative; width: 299.4mm; height: 235.9mm; overflow: hidden; background: #fff; break-after: page; }
+  .sheet:last-child { break-after: auto; }
+  .trim { position: absolute; left: 10mm; top: 10mm; width: 279.4mm; height: 215.9mm; }
+  .preview .sheet { width: 279.4mm; height: 215.9mm; }
+  .preview .trim { left: 0; top: 0; }
+  .preview .marks { display: none; }
+  .marks { position: absolute; inset: 0; width: 299.4mm; height: 235.9mm; }
+
+  .abs { position: absolute; }
+  .field { position: absolute; top: calc(-1 * var(--bleed)); bottom: calc(-1 * var(--bleed)); left: 0; right: 0; }
+  .edge-l { left: calc(-1 * var(--bleed)); }
+  .edge-r { right: calc(-1 * var(--bleed)); }
+
+  /* panels are flow layouts inside an absolute frame, so nothing can silently overflow */
+  .panel { position: absolute; top: 0; height: 215.9mm; padding: 11mm 8mm 9mm; display: flex; flex-direction: column; gap: 4mm; }
+  .inside .panel { height: 196mm; padding-top: 10mm; padding-bottom: 0; gap: 3.6mm; }
+  .inside .panel > div:first-child { margin-bottom: 1.5mm; }
+  .inside .tile { padding: 3.3mm 4.2mm 3.4mm; }
+  .inside .t-body { font-size: 8.3pt; margin-top: .6mm; }
+  .inside .lead { font-size: 9.2pt; }
+  .inside .panel.airy { gap: 6.4mm; }
+  .inside .panel.airy .tile { padding: 4.6mm 4.8mm 4.8mm; }
+  .inside .panel.airy .tile.iconed { padding-left: 17mm; }
+  .inside .panel.airy .t-body { font-size: 8.8pt; }
+
+  /* ---------- bilingual type ---------- */
+  .en { direction: ltr; text-align: left; unicode-bidi: isolate; }
+  .ar { direction: rtl; text-align: right; unicode-bidi: isolate; }
+  .geist, .en.h { font-family: "Geist", sans-serif; letter-spacing: -0.02em; }
+  .h-cover.en { font-size: 22.5pt; font-weight: 700; line-height: 1.12; }
+  .h-cover.ar { font-size: 20pt; font-weight: 700; line-height: 1.45; margin-top: 3mm; }
+  .h-panel.en { font-size: 17pt; font-weight: 700; line-height: 1.15; }
+  .h-panel.ar { font-size: 15pt; font-weight: 700; line-height: 1.5; margin-top: 1mm; }
+  .lead.en { font-size: 9.6pt; line-height: 1.5; color: var(--ink-soft); }
+  .lead.ar { font-size: 9.6pt; line-height: 1.75; color: var(--ink-soft); margin-top: 1.6mm; }
+  .t-title.en { font-family: "Geist", sans-serif; letter-spacing: -0.015em; font-size: 11.5pt; font-weight: 700; line-height: 1.2; }
+  .t-title.ar { font-size: 11pt; font-weight: 700; line-height: 1.5; margin-top: 0.4mm; }
+  .t-body.en { font-size: 8.6pt; line-height: 1.45; color: var(--ink-soft); margin-top: 1mm; }
+  .t-body.ar { font-size: 8.6pt; line-height: 1.7; color: var(--ink-soft); margin-top: 1mm; }
+  p, h1, h2, h3 { text-wrap: pretty; }
+  .url { font-family: "Geist", sans-serif; font-weight: 700; letter-spacing: -0.01em; direction: ltr; unicode-bidi: isolate; }
+  .num { font-family: "Geist", sans-serif; font-weight: 700; direction: ltr; unicode-bidi: isolate; letter-spacing: -0.01em; }
+
+  /* ---------- brand ---------- */
+  .lockup { display: inline-flex; align-items: center; gap: 1.7mm; direction: ltr; font-family: "Geist", sans-serif; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .lockup .mark { width: 1.1em; height: 1.1em; fill: currentColor; }
+  .lockup .tm { font-size: 0.5em; align-self: flex-start; margin-top: 0.15em; margin-inline-start: -1.2mm; letter-spacing: 0; }
+  .kids-pill { background: var(--ink); color: var(--sun); border-radius: 99mm; padding: 0.3mm 2.4mm 0.5mm; font-size: 0.8em; letter-spacing: 0; }
+  .stk { position: absolute; overflow: visible; }
+
+  /* ---------- cards ---------- */
+  .tile { position: relative; background: var(--paper); border: var(--line) solid var(--ink); border-radius: 5mm; padding: 4mm 4.6mm 4.2mm; }
+  .tile.numbered { padding-left: 16.5mm; }
+  .disc { position: absolute; top: 4mm; left: 4.2mm; width: 9.5mm; height: 9.5mm; border-radius: 50%; border: var(--line) solid var(--ink); display: grid; place-items: center; font-family: "Geist", sans-serif; font-weight: 700; font-size: 12.5pt; line-height: 1; padding-bottom: 0.4mm; }
+  .tile.iconed { padding-left: 17mm; }
+  .tile.iconed .ico { position: absolute; top: 3.6mm; left: 4mm; width: 10.5mm; height: 10.5mm; overflow: visible; }
+
+  .rules { background: var(--paper); border: var(--line) solid var(--ink); border-radius: 5mm; padding: 0.5mm 4.6mm; }
+  .rules li { list-style: none; padding: 4.2mm 0 4.4mm; }
+  .rules li + li { border-top: 0.45mm dashed rgb(29 22 64 / 0.55); }
+  .rules .t-title.en { font-size: 10.6pt; }
+  .rules .t-title.ar { font-size: 10.2pt; }
+  .rules .t-body { font-size: 8.3pt; }
+
+  .qr-tile { background: var(--paper); border: var(--line) solid var(--ink); border-radius: 5mm; display: grid; place-items: center; margin: 0 auto; }
+  .qr-tile svg { display: block; shape-rendering: crispEdges; }
+
+  .chip { display: flex; align-items: center; justify-content: space-between; gap: 3mm; background: var(--paper); border: var(--line) solid var(--ink); border-radius: 99mm; padding: 2mm 4.5mm 2.2mm; font-size: 8.4pt; font-weight: 600; }
+  .chip .en { font-family: "Geist", sans-serif; letter-spacing: -0.01em; }
+
+  .foot { margin-top: 4mm; border-top: 0.3mm solid rgb(29 22 64 / 0.22); padding-top: 3mm; display: flex; flex-direction: column; gap: 1.8mm; }
+  .foot p { font-size: 7.3pt; line-height: 1.4; color: var(--ink-soft); }
+  .tab { position: absolute; left: calc(-1 * var(--bleed)); bottom: 12mm; height: 12mm; background: var(--paper); border: var(--line) solid var(--ink); border-left: none; border-radius: 0 6mm 6mm 0; display: flex; align-items: center; gap: 2.4mm; padding: 0 5mm 0 8mm; font-size: 8.8pt; font-weight: 700; }
+  .tab .ar { font-weight: 600; }
+  .why2 { display: grid; grid-template-columns: 1fr; gap: 3mm; margin-top: 2mm; }
+  .why2 ul { list-style: none; }
+  .why2 li { font-size: 8.4pt; line-height: 1.5; position: relative; padding-inline-start: 4.6mm; margin-bottom: .6mm; }
+  .why2 li::before { content: ""; position: absolute; inset-inline-start: 0; top: 1.3mm; width: 2.9mm; height: 2.9mm; border-radius: 50%; background: var(--berry); border: 0.45mm solid var(--ink); }
+  .why2 ul.en li { font-family: "Geist", sans-serif; font-weight: 600; letter-spacing: -0.01em; }
+  .inside .panel.steps { gap: 2.8mm; }
+  .inside .panel.steps .tile { padding: 3mm 4mm 3.1mm; }
+  .inside .panel.steps .tile.numbered { padding-left: 16mm; }
+  .inside .panel.steps .disc { top: 3mm; }
+  .inside .panel.steps .t-title.en { font-size: 10.8pt; }
+  .inside .panel.steps .t-title.ar { font-size: 10.4pt; }
+  .inside .panel.steps .t-body { font-size: 8.1pt; margin-top: .4mm; }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="mark" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12.00 0.80 L14.49 5.99 L19.92 4.08 L18.01 9.51 L23.20 12.00 L18.01 14.49 L19.92 19.92 L14.49 18.01 L12.00 23.20 L9.51 18.01 L4.08 19.92 L5.99 14.49 L0.80 12.00 L5.99 9.51 L4.08 4.08 L9.51 5.99 Z M9.40 8.10 L16.40 12.00 L9.40 15.90 Z"/></symbol>
+    <symbol id="s-sun" viewBox="0 0 64 64">
+      <g stroke="#1d1640" stroke-width="3" stroke-linecap="round"><path d="M32 4v6M32 54v6M4 32h6M54 32h6M12.2 12.2l4.2 4.2M47.6 47.6l4.2 4.2M12.2 51.8l4.2-4.2M47.6 16.4l4.2-4.2"/></g>
+      <circle cx="32" cy="32" r="15" fill="#ffd23f" stroke="#1d1640" stroke-width="3"/>
+      <circle cx="26.5" cy="30" r="2" fill="#1d1640"/><circle cx="37.5" cy="30" r="2" fill="#1d1640"/>
+      <path d="M26 36.5c3.2 3.4 8.8 3.4 12 0" fill="none" stroke="#1d1640" stroke-width="3" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="s-cloud" viewBox="0 0 64 64"><path d="M17 47h30.5a10.5 10.5 0 0 0 .9-21 14.5 14.5 0 0 0-27.8-3.2A11.8 11.8 0 0 0 17 47Z" fill="#ffffff" stroke="#1d1640" stroke-width="3" stroke-linejoin="round"/></symbol>
+    <symbol id="s-book" viewBox="0 0 64 64">
+      <g stroke="#1d1640" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+        <path d="M32 19c-6-4-14-5-23-4v31c9-1 17 0 23 4 6-4 14-5 23-4V15c-9-1-17 0-23 4Z" fill="#5cc8ff"/>
+        <path d="M32 19v31" fill="none"/>
+        <path d="M15 24c4.5 0 8.5.8 11.5 2.2M15 31c4.5 0 8.5.8 11.5 2.2M37.5 26.2c3-1.4 7-2.2 11.5-2.2M37.5 33.2c3-1.4 7-2.2 11.5-2.2" fill="none"/>
+      </g>
+    </symbol>
+    <symbol id="s-crayon" viewBox="0 0 64 64">
+      <g stroke="#1d1640" stroke-width="3" stroke-linejoin="round" transform="rotate(-35 32 32)">
+        <rect x="8" y="24" width="34" height="16" rx="3" fill="#ff7a9c"/>
+        <path d="M42 24l14 8-14 8Z" fill="#ffffff"/>
+        <path d="M51 29.2 56 32l-5 2.8Z" fill="#1d1640"/>
+        <path d="M17 24v16M33 24v16" fill="none"/>
+      </g>
+    </symbol>
+    <symbol id="s-block" viewBox="0 0 64 64">
+      <g stroke="#1d1640" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+        <path d="M32 9 53 19.5v25L32 55 11 44.5v-25Z" fill="#52d28f"/>
+        <path d="M32 9 53 19.5 32 30 11 19.5Z" fill="#ffffff"/>
+        <path d="M32 30v25" fill="none"/>
+        <path d="M17.5 45.5 21.5 33l4 15.2M18.7 41.6l5 2.3" fill="none"/>
+        <circle cx="42.5" cy="38.5" r="3.2" fill="#ffd23f"/>
+      </g>
+    </symbol>
+    <symbol id="s-plane" viewBox="0 0 64 64">
+      <g stroke="#1d1640" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+        <path d="M8 30 57 11 43 53 31 39Z" fill="#ffffff"/>
+        <path d="M57 11 31 39v12l6-7.5" fill="none"/>
+        <path d="M5 47c5 2.5 10 1 13.5-3" fill="none" stroke-dasharray="1 6"/>
+      </g>
+    </symbol>
+    <symbol id="s-star" viewBox="0 0 64 64"><path d="M32 7.5l6.9 15 16.4 1.8-12.2 11.1 3.4 16.2L32 43.3 17.5 51.6l3.4-16.2L8.7 24.3l16.4-1.8Z" fill="#ffd23f" stroke="#1d1640" stroke-width="3" stroke-linejoin="round"/></symbol>
+    <symbol id="s-shield" viewBox="0 0 64 64">
+      <g stroke="#1d1640" stroke-width="3" stroke-linejoin="round">
+        <path d="M32 7 53 15.5v14.5C53 43.5 44.2 52.6 32 57 19.8 52.6 11 43.5 11 30V15.5Z" fill="#ffffff"/>
+        <path d="M32 42.5c-6.4-4.2-10.5-7.8-10.5-12.4a5.2 5.2 0 0 1 10.5-1.3 5.2 5.2 0 0 1 10.5 1.3c0 4.6-4.1 8.2-10.5 12.4Z" fill="#ff7a9c"/>
+      </g>
+    </symbol>
+    <symbol id="qr" viewBox="0 0 29 29"><path stroke="#1d1640" fill="none" d="M0 0.5h7m2 0h2m1 0h2m1 0h2m1 0h3m1 0h7m-29 1h1m5 0h1m1 0h2m4 0h4m4 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m1 0h1m3 0h1m2 0h1m2 0h2m2 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m5 0h1m2 0h3m1 0h1m2 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m2 0h5m3 0h3m2 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m2 0h1m1 0h2m3 0h1m1 0h2m2 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-19 1h2m1 0h1m3 0h1m1 0h2m-20 1h3m1 0h2m2 0h4m1 0h6m6 0h2m-27 1h2m2 0h1m3 0h5m1 0h2m2 0h8m1 0h1m-29 1h2m2 0h1m1 0h2m2 0h1m1 0h1m4 0h1m4 0h1m1 0h1m2 0h1m-27 1h1m1 0h2m7 0h3m3 0h1m4 0h2m3 0h1m-26 1h1m2 0h3m1 0h4m2 0h2m1 0h3m1 0h1m2 0h3m-27 1h1m1 0h1m4 0h2m1 0h1m1 0h1m2 0h1m1 0h1m2 0h2m1 0h2m1 0h1m-29 1h1m1 0h1m1 0h1m1 0h3m6 0h1m1 0h1m1 0h2m1 0h4m2 0h1m-25 1h1m3 0h3m2 0h1m2 0h1m7 0h2m1 0h2m-29 1h1m3 0h1m1 0h2m5 0h5m1 0h3m1 0h3m-23 1h1m3 0h1m1 0h1m3 0h2m1 0h2m2 0h2m3 0h1m-26 1h1m2 0h2m1 0h2m1 0h2m1 0h1m2 0h2m1 0h1m1 0h1m1 0h5m-25 1h1m4 0h1m2 0h1m6 0h3m1 0h2m1 0h4m-27 1h1m1 0h1m1 0h2m2 0h1m1 0h2m1 0h1m1 0h3m1 0h8m-20 1h1m2 0h1m4 0h1m3 0h1m3 0h2m2 0h1m-29 1h7m2 0h3m1 0h1m3 0h1m1 0h2m1 0h1m1 0h1m1 0h2m-28 1h1m5 0h1m1 0h1m1 0h1m1 0h1m1 0h1m5 0h1m3 0h1m2 0h2m-29 1h1m1 0h3m1 0h1m2 0h5m1 0h1m2 0h1m1 0h8m-28 1h1m1 0h3m1 0h1m1 0h1m4 0h1m2 0h2m1 0h1m4 0h2m1 0h1m-28 1h1m1 0h3m1 0h1m1 0h1m6 0h3m2 0h1m2 0h1m2 0h1m1 0h1m-29 1h1m5 0h1m1 0h3m1 0h1m1 0h1m1 0h1m3 0h2m2 0h2m1 0h1m-28 1h7m4 0h3m1 0h2m1 0h1m1 0h1m1 0h2m3 0h1"/></symbol>
+  </defs>
+</svg>
+
+
+<!-- ====================== OUTSIDE: flap (in) | back | cover ====================== -->
+<section class="sheet" aria-label="Outside">
+  <div class="trim">
+
+    <!-- FLAP (folds in) — Grass: safety -->
+    <div class="abs" style="left:0;top:0;width:var(--pA);height:215.9mm">
+      <div class="field edge-l" style="background:var(--grass)"></div>
+      <div class="panel" style="left:0;width:var(--pA);padding-top:12mm">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:3mm">
+          <div>
+            <h2 class="h-panel en">A closer look at your child’s classes</h2>
+            <h2 class="h-panel ar">تعرّفوا على تجربة طفلكم التعليمية</h2>
+          </div>
+          <svg class="stk" style="position:static;width:17mm;height:17mm;flex:none;transform:rotate(-6deg)"><use href="#s-shield"/></svg>
+        </div>
+        <div>
+        </div>
+        <ul class="rules">
+          <li>
+            <p class="t-title en">Carefully selected teachers</p>
+            <p class="t-body en">We select teachers carefully and review their qualifications.</p>
+            <p class="t-title ar">معلّمون مختارون بعناية</p>
+            <p class="t-body ar">نختار المعلّمين بعناية ونراجع مؤهلاتهم.</p>
+          </li>
+          <li>
+            <p class="t-title en">A choice of class formats</p>
+            <p class="t-body en">Choose a private lesson or a group class for your child.</p>
+            <p class="t-title ar">اختاروا نوع الحصة</p>
+            <p class="t-body ar">اختاروا لطفلكم حصة فردية أو جماعية.</p>
+          </li>
+          <li>
+            <p class="t-title en">Review private lessons</p>
+            <p class="t-body en">Private lesson recordings are available to watch for <span class="num">30</span> days.</p>
+            <p class="t-title ar">راجعوا الحصص الفردية</p>
+            <p class="t-body ar">تسجيلات الحصص الفردية متاحة للمشاهدة لمدة <span class="num">30</span> يوماً.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- BACK — Berry: QR, who we are, giving -->
+    <div class="abs" style="left:var(--pA);top:0;width:var(--pB);height:215.9mm">
+      <div class="abs" style="left:0;right:0;top:calc(-1 * var(--bleed));height:128mm;background:var(--berry)"></div>
+      <svg class="abs" viewBox="0 0 1440 48" preserveAspectRatio="none" style="left:0;top:124.9mm;width:var(--pB);height:7mm;transform:scaleY(-1)"><path d="M0 48V26C80 12 160 4 240 10s160 28 240 30 160-22 240-26 160 14 240 20 160-8 240-18 160-8 240 2v30H0Z" fill="#ff7a9c"/></svg>
+      <div class="panel" style="left:0;width:var(--pB)">
+        <div>
+          <h2 class="h-panel en">Find your child’s first class</h2>
+          <h2 class="h-panel ar">اختاروا أول حصة لطفلكم</h2>
+        </div>
+        <div>
+          <p class="lead en">Explore available classes, create your parent account, and book from your phone.</p>
+          <p class="lead ar">تصفّحوا الحصص المتاحة، وأنشئوا حساباً لكم بصفتكم أولياء أمور، واحجزوا من هاتفكم.</p>
+        </div>
+        <div class="qr-tile" style="width:44mm;height:44mm;margin-top:2mm"><svg viewBox="0 0 29 29" style="width:37mm;height:37mm"><use href="#qr"/></svg></div>
+        <div style="text-align:center">
+          <p class="en" style="text-align:center;font-size:8.6pt;font-weight:600">Scan to explore available classes</p>
+          <p class="ar" style="text-align:center;font-size:8.6pt;font-weight:600;margin-top:.5mm">امسحوا الرمز للاطّلاع على الحصص المتاحة</p>
+          <p class="url" style="text-align:center;font-size:13.5pt;margin-top:1.5mm">iraqistar.com/kids</p>
+        </div>
+      </div>
+      <div class="abs" style="left:8mm;right:8mm;top:135mm">
+        <div>
+          <p class="t-title en">What we offer</p>
+          <p class="t-title ar" style="margin-top:0">ما نقدّمه</p>
+          <div class="why2">
+            <ul class="en">
+              <li>Live, interactive classes</li>
+              <li>Carefully selected teachers</li>
+              <li>Private and group classes</li>
+              <li>Private lesson recordings available for <span class="num">30</span> days</li>
+            </ul>
+            <ul class="ar">
+              <li>حصص مباشرة وتفاعلية</li>
+              <li>معلّمون مختارون بعناية</li>
+              <li>حصص فردية وجماعية</li>
+              <li>تسجيلات الحصص الفردية متاحة للمشاهدة لمدة <span class="num">30</span> يوماً</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="abs" style="left:8mm;right:8mm;bottom:9mm">
+        <div class="foot" style="margin-top:0">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:1mm">
+            <span class="lockup" style="font-size:10pt"><svg class="mark"><use href="#mark"/></svg>IraqiStar<span class="tm">™</span><span class="kids-pill">Kids</span></span>
+            <span class="ar" style="font-size:9pt;color:var(--ink-soft)">نجم العراق</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- fold accents -->
+    <div class="abs" style="left:calc(var(--pA) - 0.75mm);width:1.5mm;top:calc(-1 * var(--bleed));bottom:calc(-1 * var(--bleed));background:var(--grass)"></div>
+    <div class="abs" style="left:calc(var(--pA) + var(--pB) - 0.75mm);width:1.5mm;top:calc(-1 * var(--bleed));bottom:calc(-1 * var(--bleed));background:var(--sun)"></div>
+
+    <!-- COVER — Sun -->
+    <div class="abs" style="left:calc(var(--pA) + var(--pB));top:0;width:var(--pB);height:215.9mm">
+      <div class="field edge-r" style="background:var(--sun)"></div>
+      <svg class="stk" style="right:7mm;top:9mm;width:24mm;height:24mm"><use href="#s-cloud"/></svg>
+      <div class="panel" style="left:0;width:var(--pB);padding-top:13mm;gap:0">
+        <span class="lockup" style="font-size:15pt;align-self:flex-start"><svg class="mark"><use href="#mark"/></svg>IraqiStar<span class="kids-pill">Kids</span></span>
+        <h1 class="h-cover en" style="margin-top:20mm">Live Arabic classes<br>for kids.</h1>
+        <h1 class="h-cover ar">حصص عربية مباشرة<br>للأطفال</h1>
+        <p class="lead en" style="margin-top:5mm">Help your child connect with Arabic through live online classes with teachers who speak Arabic as their native language.</p>
+        <p class="lead ar">ساعدوا طفلكم على التواصل بالعربية من خلال حصص مباشرة عبر الإنترنت مع معلّمين العربية لغتهم الأم.</p>
+      </div>
+      <svg class="stk" style="left:24mm;top:121mm;width:46mm;height:46mm;transform:rotate(-8deg)"><use href="#s-sun"/></svg>
+      <svg class="stk" style="left:71mm;top:120mm;width:12mm;height:12mm;transform:rotate(12deg)"><use href="#s-star"/></svg>
+      <div class="abs" style="left:8mm;right:8mm;bottom:19mm">
+        <p class="en" style="font-family:Geist;font-weight:600;font-size:9pt">A closer connection to language, family, and culture.</p>
+        <p class="ar" style="text-align:left;font-size:9pt;font-weight:600;margin-top:.5mm">صلة أقرب باللغة والعائلة والثقافة.</p>
+      </div>
+      <div class="abs url" style="left:8mm;bottom:9mm;font-size:10.5pt">iraqistar.com/kids</div>
+    </div>
+  </div>
+
+  <svg class="marks" viewBox="0 0 299.4 235.9" aria-hidden="true">
+    <g fill="none" stroke="#1d1640" stroke-width="0.25">
+      <path d="M2 10H7M10 2V7M297.4 10H292.4M289.4 2V7M2 225.9H7M10 233.9V228.9M297.4 225.9H292.4M289.4 233.9V228.9"/>
+      <path d="M102.08 1.5V7M195.74 1.5V7M102.08 228.9V234.4M195.74 228.9V234.4" stroke-dasharray="1 0.8"/>
+    </g>
+    <text x="10" y="234.8" font-family="Geist" font-size="2.4" fill="#1d1640">IraqiStar Kids · US tri-fold · outside · Letter 11 × 8.5 in · bleed 1/8 in · folds at 3.625 / 7.3125 in</text>
+  </svg>
+</section>
+
+<!-- ====================== INSIDE: panel 1 | panel 2 | panel 3 (folds in) ====================== -->
+<section class="sheet inside" aria-label="Inside">
+  <div class="trim">
+    <div class="field edge-l edge-r" style="background:var(--sky)"></div>
+    <svg class="abs" viewBox="0 0 1440 48" preserveAspectRatio="none" style="left:calc(-1 * var(--bleed));top:200.5mm;width:calc(279.4mm + 2 * var(--bleed));height:7.2mm"><path d="M0 48V26C80 12 160 4 240 10s160 28 240 30 160-22 240-26 160 14 240 20 160-8 240-18 160-8 240 2v30H0Z" fill="#52d28f"/></svg>
+    <div class="abs" style="left:calc(-1 * var(--bleed));right:calc(-1 * var(--bleed));top:207.5mm;bottom:calc(-1 * var(--bleed));background:var(--grass)"></div>
+
+    <!-- PANEL 1: what they'll learn -->
+    <div class="panel airy" style="left:0;width:var(--pB)">
+      <div>
+        <h2 class="h-panel en">What they'll learn</h2>
+        <h2 class="h-panel ar">ماذا سيتعلّمون</h2>
+      </div>
+      <div class="tile iconed">
+        <svg class="ico"><use href="#s-book"/></svg>
+        <p class="t-title en">Arabic</p>
+        <p class="t-body en">Practice speaking, reading, and writing.</p>
+        <p class="t-title ar">اللغة العربية</p>
+        <p class="t-body ar">ممارسة المحادثة والقراءة والكتابة.</p>
+      </div>
+      <div class="tile iconed">
+        <svg class="ico"><use href="#s-star"/></svg>
+        <p class="t-title en">Stories and heritage</p>
+        <p class="t-body en">Explore Arab stories and traditions.</p>
+        <p class="t-title ar">حكايات وتراث</p>
+        <p class="t-body ar">اكتشاف الحكايات والتقاليد العربية.</p>
+      </div>
+      <div class="tile iconed">
+        <svg class="ico"><use href="#s-crayon"/></svg>
+        <p class="t-title en">Music and songs</p>
+        <p class="t-body en">Enjoy Arabic through music and songs.</p>
+        <p class="t-title ar">موسيقى وأغانٍ</p>
+        <p class="t-body ar">الاستمتاع بالعربية من خلال الموسيقى والأغاني.</p>
+      </div>
+      <div class="tile iconed">
+        <svg class="ico"><use href="#s-block"/></svg>
+        <p class="t-title en">More subjects in Arabic</p>
+        <p class="t-body en">Explore the classes currently available.</p>
+        <p class="t-title ar">مواضيع أخرى بالعربية</p>
+        <p class="t-body ar">اكتشفوا الحصص المتاحة حالياً.</p>
+      </div>
+    </div>
+
+    <!-- PANEL 2: how it works -->
+    <div class="panel steps" style="left:var(--pB);width:var(--pB)">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:3mm">
+        <div>
+          <h2 class="h-panel en">How it works</h2>
+          <h2 class="h-panel ar">كيف تبدؤون</h2>
+        </div>
+        <svg class="stk" style="position:static;width:15mm;height:15mm;flex:none;transform:rotate(-8deg)"><use href="#s-plane"/></svg>
+      </div>
+      <div class="tile numbered">
+        <span class="disc" style="background:var(--sun)">1</span>
+        <p class="t-title en">Visit the website</p>
+        <p class="t-body en">Scan the code or visit <span class="url" style="font-weight:600">iraqistar.com/kids</span>.</p>
+        <p class="t-title ar">افتحوا الموقع</p>
+        <p class="t-body ar">امسحوا الرمز أو افتحوا <span class="url" style="font-weight:600">iraqistar.com/kids</span>.</p>
+      </div>
+      <div class="tile numbered">
+        <span class="disc" style="background:var(--berry)">2</span>
+        <p class="t-title en">Create your parent account</p>
+        <p class="t-body en">Enter your phone number and the verification code sent to you.</p>
+        <p class="t-title ar">أنشئوا حساباً لكم</p>
+        <p class="t-body ar">أدخلوا رقم هاتفكم ورمز التحقق الذي يصلكم.</p>
+      </div>
+      <div class="tile numbered">
+        <span class="disc" style="background:var(--grass)">3</span>
+        <p class="t-title en">Add your child’s details</p>
+        <p class="t-body en">Enter their first name and birth year.</p>
+        <p class="t-title ar">أضيفوا بيانات طفلكم</p>
+        <p class="t-body ar">أدخلوا اسمه الأول وسنة ميلاده.</p>
+      </div>
+      <div class="tile numbered">
+        <span class="disc" style="background:var(--tangerine)">4</span>
+        <p class="t-title en">Choose and book</p>
+        <p class="t-body en">Select an available class and time.</p>
+        <p class="t-title ar">اختاروا واحجزوا</p>
+        <p class="t-body ar">اختاروا حصة متاحة وموعداً مناسباً.</p>
+      </div>
+      <div class="tile numbered" style="background:var(--sun)">
+        <span class="disc" style="background:var(--paper)">5</span>
+        <p class="t-title en">Join the class</p>
+        <p class="t-body en" style="color:var(--ink)">Help your child get ready and join at the scheduled time.</p>
+        <p class="t-title ar">انضمّوا إلى الحصة</p>
+        <p class="t-body ar" style="color:var(--ink)">ساعدوا طفلكم على الاستعداد والانضمام في الموعد المحدّد.</p>
+      </div>
+    </div>
+
+    <!-- PANEL 3 (folds in): other IraqiStar services -->
+    <div class="panel airy" style="left:calc(2 * var(--pB));width:var(--pA)">
+      <div>
+        <h2 class="h-panel en">More from IraqiStar</h2>
+        <h2 class="h-panel ar">المزيد من IraqiStar</h2>
+      </div>
+      <div>
+        <p class="lead en">One account, for the whole family.</p>
+        <p class="lead ar">حساب واحد، لكل العائلة.</p>
+      </div>
+      <div class="tile">
+        <p class="t-title en">Videos from Iraq's stars</p>
+        <p class="t-body en">A personal video message for a birthday, a wedding, or someone missing home.</p>
+        <p class="t-title ar">فيديو من نجوم العراق</p>
+        <p class="t-body ar">رسالة فيديو شخصية لعيد ميلاد أو زفاف، أو لمن يشتاق إلى الوطن.</p>
+      </div>
+      <div class="tile">
+        <p class="t-title en">Sessions with Iraqi experts</p>
+        <p class="t-body en">Private video sessions with teachers, coaches and lawyers.</p>
+        <p class="t-title ar">جلسات مع خبراء عراقيين</p>
+        <p class="t-body ar">جلسات فيديو خاصة مع معلّمين ومدرّبين ومحامين.</p>
+      </div>
+      <div class="tile">
+        <p class="t-title en">Content for your business</p>
+        <p class="t-body en">Videos about your business, filmed by Iraqi creators.</p>
+        <p class="t-title ar">محتوى لعملكم</p>
+        <p class="t-body ar">فيديوهات عن عملكم، بعدسة صنّاع محتوى عراقيين.</p>
+      </div>
+      <div style="margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end">
+        <p class="url" style="font-size:12pt">iraqistar.com</p>
+        <span class="lockup" style="font-size:9.5pt"><svg class="mark"><use href="#mark"/></svg>IraqiStar<span class="tm">™</span></span>
+      </div>
+    </div>
+
+    <svg class="stk" style="left:9mm;top:201.5mm;width:13mm;height:13mm;transform:rotate(-10deg)"><use href="#s-star"/></svg>
+    <svg class="stk" style="left:256mm;top:199.5mm;width:15mm;height:15mm"><use href="#s-crayon"/></svg>
+    <svg class="stk" style="left:150mm;top:203mm;width:12mm;height:12mm;transform:rotate(8deg)"><use href="#s-cloud"/></svg>
+  </div>
+
+  <svg class="marks" viewBox="0 0 299.4 235.9" aria-hidden="true">
+    <g fill="none" stroke="#1d1640" stroke-width="0.25">
+      <path d="M2 10H7M10 2V7M297.4 10H292.4M289.4 2V7M2 225.9H7M10 233.9V228.9M297.4 225.9H292.4M289.4 233.9V228.9"/>
+      <path d="M103.66 1.5V7M197.32 1.5V7M103.66 228.9V234.4M197.32 228.9V234.4" stroke-dasharray="1 0.8"/>
+    </g>
+    <text x="10" y="234.8" font-family="Geist" font-size="2.4" fill="#1d1640">IraqiStar Kids · US tri-fold · inside · Letter 11 × 8.5 in · bleed 1/8 in · folds at 3.6875 / 7.375 in</text>
+  </svg>
+</section>
+
+</body>
+</html>

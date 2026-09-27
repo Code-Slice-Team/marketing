@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>IraqiStar Kids — مطوية</title>
+<script>
+  // ?mode=preview gives a plain A4 page (trimmed, no marks) for screens and WhatsApp;
+  // the default is the print-shop file: A4 trim, 3 mm bleed, crop and fold marks in a 7 mm slug.
+  (function () {
+    var preview = new URLSearchParams(location.search).get("mode") === "preview";
+    document.documentElement.className = preview ? "preview" : "print";
+    var page = document.createElement("style");
+    page.textContent = preview ? "@page{size:297mm 210mm;margin:0}" : "@page{size:317mm 230mm;margin:0}";
+    document.head.appendChild(page);
+  })();
+</script>
+<style>
+  @font-face { font-family: "IBM Plex Sans Arabic"; src: url(fonts/IBMPlexSansArabic-Regular.ttf); font-weight: 400; }
+  @font-face { font-family: "IBM Plex Sans Arabic"; src: url(fonts/IBMPlexSansArabic-Medium.ttf); font-weight: 500; }
+  @font-face { font-family: "IBM Plex Sans Arabic"; src: url(fonts/IBMPlexSansArabic-SemiBold.ttf); font-weight: 600; }
+  @font-face { font-family: "IBM Plex Sans Arabic"; src: url(fonts/IBMPlexSansArabic-Bold.ttf); font-weight: 700; }
+  @font-face { font-family: "Geist"; src: url(fonts/Geist-SemiBold.ttf); font-weight: 600; }
+  @font-face { font-family: "Geist"; src: url(fonts/Geist-Bold.ttf); font-weight: 700; }
+
+  :root {
+    --sun: #ffd23f;
+    --sky: #5cc8ff;
+    --grass: #52d28f;
+    --berry: #ff7a9c;
+    --tangerine: #ffa04d;
+    --ink: #1d1640;
+    --ink-soft: rgb(29 22 64 / 0.8);
+    --paper: #ffffff;
+    --line: 0.6mm;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: "IBM Plex Sans Arabic", sans-serif; color: var(--ink); background: #fff; }
+  @media screen {
+    body { background: #d9d6e4; display: grid; justify-content: center; gap: 12mm; padding: 12mm 0; }
+    .sheet { box-shadow: 0 2mm 8mm rgb(29 22 64 / 0.18); }
+  }
+
+  /* ---------- sheet geometry ---------- */
+  .sheet { position: relative; width: 317mm; height: 230mm; overflow: hidden; background: #fff; break-after: page; }
+  .sheet:last-child { break-after: auto; }
+  .trim { position: absolute; left: 10mm; top: 10mm; width: 297mm; height: 210mm; }
+  .preview .sheet { width: 297mm; height: 210mm; }
+  .preview .trim { left: 0; top: 0; }
+  .preview .marks { display: none; }
+  .marks { position: absolute; inset: 0; width: 317mm; height: 230mm; }
+
+  .abs { position: absolute; }
+  .field { position: absolute; top: -3mm; bottom: -3mm; left: 0; right: 0; }
+  .edge-l { left: -3mm; }
+  .edge-r { right: -3mm; }
+
+  /* ---------- type ---------- */
+  .ltr { direction: ltr; unicode-bidi: isolate; }
+  .geist { font-family: "Geist", sans-serif; }
+  .h-cover { font-size: 29pt; font-weight: 700; line-height: 1.3; }
+  .h-panel { font-size: 21pt; font-weight: 700; line-height: 1.3; }
+  .lead { font-size: 11pt; line-height: 1.8; color: var(--ink-soft); }
+  .t-title { font-size: 12.5pt; font-weight: 700; line-height: 1.45; }
+  .t-body { font-size: 9.6pt; line-height: 1.62; color: var(--ink-soft); }
+  p, h1, h2, h3 { text-wrap: pretty; }
+  .url { font-family: "Geist", sans-serif; font-weight: 700; letter-spacing: -0.01em; direction: ltr; unicode-bidi: isolate; }
+
+  /* ---------- brand ---------- */
+  .lockup { display: inline-flex; align-items: center; gap: 1.7mm; direction: ltr; font-family: "Geist", sans-serif; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .lockup .mark { width: 1.1em; height: 1.1em; fill: currentColor; }
+  .lockup .tm { font-size: 0.5em; align-self: flex-start; margin-top: 0.15em; margin-inline-start: -1.2mm; letter-spacing: 0; }
+  .kids-pill { background: var(--ink); color: var(--sun); border-radius: 99mm; padding: 0.3mm 2.4mm 0.5mm; font-size: 0.8em; letter-spacing: 0; }
+
+  .stk { position: absolute; overflow: visible; }
+
+  /* ---------- the board ---------- */
+  .tile { position: absolute; background: var(--paper); border: var(--line) solid var(--ink); border-radius: 5mm; padding: 4.2mm 5.5mm 4.5mm; }
+  .tile .t-title { padding-inline-start: 13mm; font-size: 13.5pt; min-height: 11mm; display: flex; align-items: center; }
+  .tile .t-body { font-size: 10.4pt; line-height: 1.6; margin-top: 0.6mm; }
+  .disc { position: absolute; top: 4.2mm; right: 4.2mm; width: 11mm; height: 11mm; border-radius: 50%; border: var(--line) solid var(--ink); display: grid; place-items: center; font-family: "Geist", sans-serif; font-weight: 700; font-size: 14pt; line-height: 1; padding-bottom: 0.5mm; }
+  .fork { position: absolute; left: 0; right: 0; bottom: 0; height: 55mm; display: grid; grid-template-columns: 1fr 1fr; border-top: var(--line) solid var(--ink); border-radius: 0 0 4.4mm 4.4mm; overflow: hidden; }
+  .fork > div { padding: 3.6mm 4mm; }
+  .fork > div + div { border-inline-start: var(--line) solid var(--ink); }
+  .fork .k-title { font-size: 12pt; font-weight: 700; line-height: 1.45; }
+  .fork .t-body { color: var(--ink-soft); font-size: 9.8pt; margin-top: 0.4mm; }
+
+  .qr-tile { background: var(--paper); border-radius: 5mm; display: grid; place-items: center; }
+  .qr-tile svg { display: block; shape-rendering: crispEdges; }
+
+  /* ---------- the rules card (safety) ---------- */
+  .rules-card { position: absolute; background: var(--paper); border: var(--line) solid var(--ink); border-radius: 5mm; padding: 1mm 6mm; }
+  .rules-card li { list-style: none; padding: 3.6mm 0 3.8mm; }
+  .rules-card li + li { border-top: 0.45mm dashed rgb(29 22 64 / 0.55); }
+  .rules-card .r-title { font-size: 11.8pt; font-weight: 700; line-height: 1.45; }
+  .rules-card .t-body { font-size: 9.9pt; color: var(--ink-soft); margin-top: 0.3mm; }
+  .why { list-style: none; }
+  .why li { break-inside: avoid; font-size: 9pt; line-height: 1.55; padding-inline-start: 5mm; position: relative; margin-bottom: 0.6mm; }
+  .why li::before { content: ""; position: absolute; inset-inline-start: 0; top: 1.5mm; width: 3.2mm; height: 3.2mm; border-radius: 50%; background: var(--berry); border: 0.45mm solid var(--ink); }
+</style>
+</head>
+<body>
+
+<!-- Stickers from components/marketing/kids-art.tsx, the mark from lib/brand.ts -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="mark" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12.00 0.80 L14.49 5.99 L19.92 4.08 L18.01 9.51 L23.20 12.00 L18.01 14.49 L19.92 19.92 L14.49 18.01 L12.00 23.20 L9.51 18.01 L4.08 19.92 L5.99 14.49 L0.80 12.00 L5.99 9.51 L4.08 4.08 L9.51 5.99 Z M9.40 8.10 L16.40 12.00 L9.40 15.90 Z"/></symbol>
+    <symbol id="s-sun" viewBox="0 0 64 64">
+      <g stroke="#1d1640" stroke-width="3" stroke-linecap="round"><path d="M32 4v6M32 54v6M4 32h6M54 32h6M12.2 12.2l4.2 4.2M47.6 47.6l4.2 4.2M12.2 51.8l4.2-4.2M47.6 16.4l4.2-4.2"/></g>
+      <circle cx="32" cy="32" r="15" fill="#ffd23f" stroke="#1d1640" stroke-width="3"/>
+      <circle cx="26.5" cy="30" r="2" fill="#1d1640"/><circle cx="37.5" cy="30" r="2" fill="#1d1640"/>
+      <path d="M26 36.5c3.2 3.4 8.8 3.4 12 0" fill="none" stroke="#1d1640" stroke-width="3" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="s-cloud" viewBox="0 0 64 64"><path d="M17 47h30.5a10.5 10.5 0 0 0 .9-21 14.5 14.5 0 0 0-27.8-3.2A11.8 11.8 0 0 0 17 47Z" fill="#ffffff" stroke="#1d1640" stroke-width="3" stroke-linejoin="round"/></symbol>
+    <symbol id="s-book" viewBox="0 0 64 64">
+      <g stroke="#1d1640" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+        <path d="M32 19c-6-4-14-5-23-4v31c9-1 17 0 23 4 6-4 14-5 23-4V15c-9-1-17 0-23 4Z" fill="#5cc8ff"/>
+        <path d="M32 19v31" fill="none"/>
+        <path d="M15 24c4.5 0 8.5.8 11.5 2.2M15 31c4.5 0 8.5.8 11.5 2.2M37.5 26.2c3-1.4 7-2.2 11.5-2.2M37.5 33.2c3-1.4 7-2.2 11.5-2.2" fill="none"/>
+      </g>
+    </symbol>
+    <symbol id="s-crayon" viewBox="0 0 64 64">
+      <g stroke="#1d1640" stroke-width="3" stroke-linejoin="round" transform="rotate(-35 32 32)">
+        <rect x="8" y="24" width="34" height="16" rx="3" fill="#ff7a9c"/>
+        <path d="M42 24l14 8-14 8Z" fill="#ffffff"/>
+        <path d="M51 29.2 56 32l-5 2.8Z" fill="#1d1640"/>
+        <path d="M17 24v16M33 24v16" fill="none"/>
+      </g>
+    </symbol>
+    <symbol id="s-block" viewBox="0 0 64 64">
+      <g stroke="#1d1640" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+        <path d="M32 9 53 19.5v25L32 55 11 44.5v-25Z" fill="#52d28f"/>
+        <path d="M32 9 53 19.5 32 30 11 19.5Z" fill="#ffffff"/>
+        <path d="M32 30v25" fill="none"/>
+        <path d="M17.5 45.5 21.5 33l4 15.2M18.7 41.6l5 2.3" fill="none"/>
+        <circle cx="42.5" cy="38.5" r="3.2" fill="#ffd23f"/>
+      </g>
+    </symbol>
+    <symbol id="s-plane" viewBox="0 0 64 64">
+      <g stroke="#1d1640" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+        <path d="M8 30 57 11 43 53 31 39Z" fill="#ffffff"/>
+        <path d="M57 11 31 39v12l6-7.5" fill="none"/>
+        <path d="M5 47c5 2.5 10 1 13.5-3" fill="none" stroke-dasharray="1 6"/>
+      </g>
+    </symbol>
+    <symbol id="s-star" viewBox="0 0 64 64"><path d="M32 7.5l6.9 15 16.4 1.8-12.2 11.1 3.4 16.2L32 43.3 17.5 51.6l3.4-16.2L8.7 24.3l16.4-1.8Z" fill="#ffd23f" stroke="#1d1640" stroke-width="3" stroke-linejoin="round"/></symbol>
+    <symbol id="s-shield" viewBox="0 0 64 64">
+      <g stroke="#1d1640" stroke-width="3" stroke-linejoin="round">
+        <path d="M32 7 53 15.5v14.5C53 43.5 44.2 52.6 32 57 19.8 52.6 11 43.5 11 30V15.5Z" fill="#ffffff"/>
+        <path d="M32 42.5c-6.4-4.2-10.5-7.8-10.5-12.4a5.2 5.2 0 0 1 10.5-1.3 5.2 5.2 0 0 1 10.5 1.3c0 4.6-4.1 8.2-10.5 12.4Z" fill="#ff7a9c"/>
+      </g>
+    </symbol>
+    <symbol id="qr" viewBox="0 0 29 29"><path stroke="#1d1640" fill="none" d="M0 0.5h7m2 0h2m1 0h2m1 0h2m1 0h3m1 0h7m-29 1h1m5 0h1m1 0h2m4 0h4m4 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m1 0h1m3 0h1m2 0h1m2 0h2m2 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m5 0h1m2 0h3m1 0h1m2 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m2 0h5m3 0h3m2 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m2 0h1m1 0h2m3 0h1m1 0h2m2 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-19 1h2m1 0h1m3 0h1m1 0h2m-20 1h3m1 0h2m2 0h4m1 0h6m6 0h2m-27 1h2m2 0h1m3 0h5m1 0h2m2 0h8m1 0h1m-29 1h2m2 0h1m1 0h2m2 0h1m1 0h1m4 0h1m4 0h1m1 0h1m2 0h1m-27 1h1m1 0h2m7 0h3m3 0h1m4 0h2m3 0h1m-26 1h1m2 0h3m1 0h4m2 0h2m1 0h3m1 0h1m2 0h3m-27 1h1m1 0h1m4 0h2m1 0h1m1 0h1m2 0h1m1 0h1m2 0h2m1 0h2m1 0h1m-29 1h1m1 0h1m1 0h1m1 0h3m6 0h1m1 0h1m1 0h2m1 0h4m2 0h1m-25 1h1m3 0h3m2 0h1m2 0h1m7 0h2m1 0h2m-29 1h1m3 0h1m1 0h2m5 0h5m1 0h3m1 0h3m-23 1h1m3 0h1m1 0h1m3 0h2m1 0h2m2 0h2m3 0h1m-26 1h1m2 0h2m1 0h2m1 0h2m1 0h1m2 0h2m1 0h1m1 0h1m1 0h5m-25 1h1m4 0h1m2 0h1m6 0h3m1 0h2m1 0h4m-27 1h1m1 0h1m1 0h2m2 0h1m1 0h2m1 0h1m1 0h3m1 0h8m-20 1h1m2 0h1m4 0h1m3 0h1m3 0h2m2 0h1m-29 1h7m2 0h3m1 0h1m3 0h1m1 0h2m1 0h1m1 0h1m1 0h2m-28 1h1m5 0h1m1 0h1m1 0h1m1 0h1m1 0h1m5 0h1m3 0h1m2 0h2m-29 1h1m1 0h3m1 0h1m2 0h5m1 0h1m2 0h1m1 0h8m-28 1h1m1 0h3m1 0h1m1 0h1m4 0h1m2 0h2m1 0h1m4 0h2m1 0h1m-28 1h1m1 0h3m1 0h1m1 0h1m6 0h3m2 0h1m2 0h1m2 0h1m1 0h1m-29 1h1m5 0h1m1 0h3m1 0h1m1 0h1m1 0h1m3 0h2m2 0h2m1 0h1m-28 1h7m4 0h3m1 0h2m1 0h1m1 0h1m1 0h2m3 0h1"/></symbol>
+  </defs>
+</svg>
+
+<!-- ===================== OUTSIDE: front cover · back · flap ===================== -->
+<section class="sheet" aria-label="الوجه الخارجي">
+  <div class="trim">
+
+    <!-- Front cover (left panel, 100 mm): opens to the right, like an Arabic book -->
+    <div class="abs" style="left:0;top:0;width:100mm;height:210mm">
+      <div class="field edge-l" style="background:var(--sun);right:-1mm"></div>
+
+      <svg class="stk" style="left:8mm;top:11mm;width:25mm;height:25mm"><use href="#s-cloud"/></svg>
+
+      <div class="abs" style="right:9mm;top:12mm">
+        <span class="lockup" style="font-size:16pt"><svg class="mark"><use href="#mark"/></svg>IraqiStar<span class="kids-pill">Kids</span></span>
+      </div>
+
+      <div class="abs" style="right:9mm;top:40mm;width:80mm">
+        <h1 class="h-cover" style="font-size:24pt">حصص أونلاين للأطفال…<br>تعلّم وتفاعل من البيت</h1>
+        <p class="lead" style="margin-top:5mm">خلّوا طفلكم يتعلّم ويتفاعل بحصص مباشرة ويا معلّمين ومعلّمات مختارين بعناية. اختاروا الحصة والموعد المناسبين، واحجزوا من الموبايل.</p>
+      </div>
+
+      <svg class="stk" style="left:12mm;top:118mm;width:58mm;height:58mm;transform:rotate(-8deg)"><use href="#s-sun"/></svg>
+      <svg class="stk" style="left:70mm;top:120mm;width:13mm;height:13mm;transform:rotate(12deg)"><use href="#s-star"/></svg>
+
+      <!-- The road starts here: a tab on the free edge -->
+      <div class="abs" style="left:-3mm;top:181mm;height:13mm;width:62mm;background:var(--paper);border:var(--line) solid var(--ink);border-left:none;border-radius:0 6.5mm 6.5mm 0;display:flex;align-items:center;gap:2.4mm;padding-inline:9mm 6mm;flex-direction:row-reverse;justify-content:flex-end">
+        <span style="width:8mm;height:8mm;border-radius:50%;background:var(--sun);border:var(--line) solid var(--ink);display:grid;place-items:center;font-family:Geist;font-weight:700;font-size:10.5pt;line-height:1;padding-bottom:.3mm">1</span>
+        <span style="font-size:10.5pt;font-weight:700">أول حصة تبدأ من هنا</span>
+      </div>
+
+      <div class="abs url" style="right:9mm;top:173mm;font-size:11pt">iraqistar.com/kids</div>
+    </div>
+
+    <!-- Back cover (middle panel, 100 mm) -->
+    <div class="abs" style="left:100mm;top:0;width:100mm;height:210mm">
+      <div class="abs" style="left:0;right:0;top:-3mm;height:138mm;background:var(--berry)"></div>
+      <svg class="abs" viewBox="0 0 1440 48" preserveAspectRatio="none" style="left:0;top:134.9mm;width:100mm;height:7mm;transform:scaleY(-1)"><path d="M0 48V26C80 12 160 4 240 10s160 28 240 30 160-22 240-26 160 14 240 20 160-8 240-18 160-8 240 2v30H0Z" fill="#ff7a9c"/></svg>
+
+      <div class="abs" style="right:9mm;top:13mm;width:82mm">
+        <h2 class="h-panel">جاهزين لأول حصة؟</h2>
+        <p class="lead" style="margin-top:2.5mm;color:var(--ink)">شوفوا الحصص المتاحة، سوّوا حساب إلكم، واختاروا أول حصة لطفلكم.</p>
+      </div>
+
+      <div class="abs qr-tile" style="left:26mm;top:52mm;width:48mm;height:48mm;border:var(--line) solid var(--ink)">
+        <svg style="width:36mm;height:36mm"><use href="#qr"/></svg>
+      </div>
+      <p class="abs" style="left:0;right:0;top:103mm;text-align:center;font-size:9.6pt;font-weight:600">امسحوا الرمز بكاميرا الموبايل وشوفوا الحصص المتاحة</p>
+      <p class="abs url" style="left:0;right:0;top:110.5mm;text-align:center;font-size:14pt">iraqistar.com/kids</p>
+
+      <div class="abs" style="right:9mm;left:9mm;top:145mm">
+        <h3 class="t-title" style="font-size:11.5pt">شنو نقدّم لطفلكم؟</h3>
+        <ul class="why" style="margin-top:2mm">
+          <li>حصص مباشرة وتفاعلية</li>
+          <li>معلّمون مختارون بعناية</li>
+          <li>حصص فردية وجماعية</li>
+          <li>تسجيلات الحصص الفردية متاحة للمشاهدة لمدة <span class="ltr">30</span> يوم</li>
+        </ul>
+      </div>
+
+      <div class="abs" style="left:9mm;right:9mm;top:188mm;display:flex;align-items:center;justify-content:space-between;border-top:0.3mm solid rgb(29 22 64 / 0.18);padding-top:3mm">
+        <span style="font-size:9pt;color:var(--ink-soft)">نجم العراق</span>
+        <span class="lockup" style="font-size:10pt"><svg class="mark"><use href="#mark"/></svg>IraqiStar<span class="tm">™</span><span class="kids-pill">Kids</span></span>
+      </div>
+    </div>
+
+    <!-- Cover and flap colours carried 1.5 mm past the folds, so a fold that lands slightly off never shows a sliver of the back -->
+    <div class="abs" style="left:99.4mm;width:2.2mm;top:-3mm;bottom:-3mm;background:var(--sun)"></div>
+    <div class="abs" style="left:198.4mm;width:2.2mm;top:-3mm;bottom:-3mm;background:var(--grass)"></div>
+
+    <!-- Flap (right panel, 97 mm): the first thing seen when the cover opens -->
+    <div class="abs" style="left:200mm;top:0;width:97mm;height:210mm">
+      <div class="field edge-r" style="background:var(--grass);left:-1mm"></div>
+
+      <svg class="stk" style="left:10mm;top:11mm;width:22mm;height:22mm;transform:rotate(-6deg)"><use href="#s-shield"/></svg>
+      <div class="abs" style="right:10mm;top:13mm;width:56mm">
+        <h2 class="h-panel">راحة بالكم تهمّنا</h2>
+        <p class="lead" style="margin-top:1.5mm;color:var(--ink)">لأن طفلكم يستحق الأفضل.</p>
+      </div>
+
+      <ul class="rules-card" style="left:9mm;right:10mm;top:46mm">
+        <li><p class="r-title">معلّمون مختارون بعناية</p><p class="t-body">نختار المعلّمين ونراجع مؤهلاتهم قبل انضمامهم.</p></li>
+        <li><p class="r-title">اختاروا اللي يناسب طفلكم</p><p class="t-body">حصة فردية ويا المعلّم، أو حصة جماعية يتعلّم بيها ويا أطفال آخرين.</p></li>
+        <li><p class="r-title">ارجعوا للحصة مرة ثانية</p><p class="t-body">تسجيلات الحصص الفردية متاحة للمشاهدة لمدة <span class="ltr">30</span> يوم، حتى تراجعون اللي تعلّمه طفلكم.</p></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <svg class="marks" viewBox="0 0 317 230" aria-hidden="true">
+    <g stroke="#000" stroke-width="0.2" fill="none">
+      <path d="M2 10H7M10 2V7M315 10H310M307 2V7M2 220H7M10 228V223M315 220H310M307 228V223"/>
+      <path d="M110 1.5V7M210 1.5V7M110 223V228.5M210 223V228.5" stroke-dasharray="1 0.8"/>
+    </g>
+    <text x="14" y="227.3" font-family="Geist" font-size="2.3" fill="#000" direction="ltr">IraqiStar Kids · OUTSIDE · A4 297×210 trim · 3 mm bleed</text>
+    <text x="114" y="227.3" font-family="Geist" font-size="2.3" fill="#000" direction="ltr">dashed marks = folds · cover opens to the right</text>
+  </svg>
+</section>
+
+<!-- ===================== INSIDE: the board, read right to left ===================== -->
+<section class="sheet" aria-label="الوجه الداخلي">
+  <div class="trim">
+    <div class="field edge-l edge-r" style="background:var(--sky)"></div>
+
+    <!-- The road -->
+    <svg class="abs" viewBox="0 0 297 210" style="left:0;top:0;width:297mm;height:210mm;overflow:visible" aria-hidden="true">
+      <path d="M246 62 V150 Q246 162 234 162 H159 Q147 162 147 150 V128 M147 132 Q147 124 139 124 H134 Q126 124 126 116 V100 M147 132 Q147 124 155 124 H160 Q168 124 168 116 V100 M135 40 H61 Q49 40 49 52 V130" fill="none" stroke="#ffffff" stroke-opacity="0.72" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M246 62 V150 Q246 162 234 162 H159 Q147 162 147 150 V128 M147 132 Q147 124 139 124 H134 Q126 124 126 116 V100 M147 132 Q147 124 155 124 H160 Q168 124 168 116 V100 M135 40 H61 Q49 40 49 52 V130" fill="none" stroke="#1d1640" stroke-width="0.7" stroke-dasharray="2.6 2.4" stroke-linecap="round"/>
+    </svg>
+
+    <!-- Grass along the bottom edge -->
+    <svg class="abs" viewBox="0 0 1440 48" preserveAspectRatio="none" style="left:-3mm;top:184mm;width:303mm;height:7.2mm"><path d="M0 48V26C80 12 160 4 240 10s160 28 240 30 160-22 240-26 160 14 240 20 160-8 240-18 160-8 240 2v30H0Z" fill="#52d28f"/></svg>
+    <div class="abs" style="left:-3mm;right:-3mm;top:191mm;bottom:-3mm;background:var(--grass)"></div>
+
+    <!-- Right panel (D): title, squares 1 and 2 -->
+    <svg class="stk" style="left:196mm;top:10mm;width:15mm;height:15mm;transform:rotate(-8deg)"><use href="#s-plane"/></svg>
+    <div class="abs" style="right:10mm;top:12mm;width:66mm">
+      <h2 class="h-panel" style="white-space:nowrap;font-size:19.5pt">خطوة بخطوة لأول حصة</h2>
+      <p class="lead" style="margin-top:.5mm;color:var(--ink)">خمس خطوات بسيطة حتى تبدون.</p>
+    </div>
+
+    <div class="tile" style="left:205mm;top:46mm;width:82mm;height:35mm">
+      <span class="disc" style="background:var(--sun)">1</span>
+      <p class="t-title">افتحوا الموقع</p>
+      <p class="t-body">امسحوا الرمز أو افتحوا <span class="url" style="font-weight:600">iraqistar.com/kids</span> من الموبايل.</p>
+    </div>
+
+    <div class="tile" style="left:205mm;top:106mm;width:82mm;height:30mm">
+      <span class="disc" style="background:var(--berry)">2</span>
+      <p class="t-title">سوّوا حساب إلكم</p>
+      <p class="t-body">سجّلوا برقم موبايلكم وأدخلوا رمز التحقق اللي يوصلكم.</p>
+    </div>
+
+    <svg class="stk" style="left:207mm;top:166mm;width:16mm;height:16mm;transform:rotate(6deg)"><use href="#s-block"/></svg>
+
+    <!-- Middle panel (E): square 3 at the bottom, square 4 at the top -->
+    <div class="tile" style="left:105mm;top:146mm;width:84mm;height:30mm">
+      <span class="disc" style="background:var(--grass)">3</span>
+      <p class="t-title">ضيفوا بيانات طفلكم</p>
+      <p class="t-body">اكتبوا اسمه الأول وسنة ميلاده.</p>
+    </div>
+
+    <div class="tile" style="left:105mm;top:13mm;width:84mm;height:96mm">
+      <span class="disc" style="background:var(--tangerine)">4</span>
+      <p class="t-title">اختاروا واحجزوا</p>
+      <p class="t-body">شوفوا الحصص المتاحة، واختاروا الموضوع والموعد المناسبين لطفلكم.</p>
+      <div class="fork">
+        <div style="background:var(--sun)">
+          <p class="k-title">حصة جماعية</p>
+          <p class="t-body">يتعلّم طفلكم ويا المعلّم ومجموعة من الأطفال.</p>
+        </div>
+        <div style="background:var(--berry)">
+          <p class="k-title">حصة فردية</p>
+          <p class="t-body">لطفلكم وحده ويا المعلّم، وتسجيلها متاح للمشاهدة لمدة <span class="ltr">30</span> يوم.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Left panel (F, folds in): square 5 and the finish -->
+    <div class="tile" style="left:10mm;top:13mm;width:79mm;height:36mm">
+      <span class="disc" style="background:var(--sun)">5</span>
+      <p class="t-title">وقت الحصة!</p>
+      <p class="t-body">ادخلوا على الحصة بموعدها وساعدوا طفلكم يستعد للتعلّم والتفاعل.</p>
+    </div>
+
+    <div class="tile" style="left:10mm;top:80mm;width:79mm;height:86mm;text-align:center;padding-top:6mm">
+      <p style="font-size:17pt;font-weight:700;line-height:1.3">اختاروا أول حصة لطفلكم</p>
+      <div class="qr-tile" style="margin:3.5mm auto 0;width:44mm;height:44mm">
+        <svg style="width:38mm;height:38mm"><use href="#qr"/></svg>
+      </div>
+      <p style="margin-top:2.5mm;font-size:9.6pt;font-weight:600">امسحوا الرمز بكاميرا الموبايل</p>
+      <p class="url" style="margin-top:1mm;font-size:12.5pt">iraqistar.com/kids</p>
+    </div>
+    <svg class="stk" style="left:9mm;top:72mm;width:16mm;height:16mm;transform:rotate(-10deg)"><use href="#s-star"/></svg>
+
+    <svg class="stk" style="left:66mm;top:178mm;width:19mm;height:19mm"><use href="#s-crayon"/></svg>
+  </div>
+
+  <svg class="marks" viewBox="0 0 317 230" aria-hidden="true">
+    <g stroke="#000" stroke-width="0.2" fill="none">
+      <path d="M2 10H7M10 2V7M315 10H310M307 2V7M2 220H7M10 228V223M315 220H310M307 228V223"/>
+      <path d="M107 1.5V7M207 1.5V7M107 223V228.5M207 223V228.5" stroke-dasharray="1 0.8"/>
+    </g>
+    <text x="14" y="227.3" font-family="Geist" font-size="2.3" fill="#000" direction="ltr">IraqiStar Kids · INSIDE · flip on the short edge</text>
+    <text x="111" y="227.3" font-family="Geist" font-size="2.3" fill="#000" direction="ltr">dashed marks = folds · 97 mm left panel folds in first</text>
+  </svg>
+</section>
+
+</body>
+</html>

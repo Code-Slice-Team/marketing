@@ -1,0 +1,56 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><style>
+@page{size:210mm 297mm;margin:0}
+@font-face{font-family:"IBM Plex Sans Arabic";src:url(fonts/IBMPlexSansArabic-Regular.ttf);font-weight:400}
+@font-face{font-family:"IBM Plex Sans Arabic";src:url(fonts/IBMPlexSansArabic-Medium.ttf);font-weight:500}
+@font-face{font-family:"IBM Plex Sans Arabic";src:url(fonts/IBMPlexSansArabic-SemiBold.ttf);font-weight:600}
+@font-face{font-family:"IBM Plex Sans Arabic";src:url(fonts/IBMPlexSansArabic-Bold.ttf);font-weight:700}
+@font-face{font-family:Geist;src:url(fonts/Geist-Bold.ttf);font-weight:700}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact;overflow:hidden;width:210mm;height:297mm}
+body{width:210mm;height:297mm;overflow:hidden;background:#08080f;color:#f7f7fb;font-family:"IBM Plex Sans Arabic",sans-serif;position:relative}
+.glow{position:absolute;left:50%;top:26%;width:260mm;height:260mm;border-radius:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(100,48,240,.5) 0%,rgba(100,48,240,0) 58%)}
+.vig{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(0,0,0,0) 55%,rgba(0,0,0,.6) 100%)}
+.page{position:absolute;inset:0;padding:16mm 16mm 14mm;display:flex;flex-direction:column}
+.head{display:flex;justify-content:space-between;align-items:center}
+.lockup{display:inline-flex;align-items:center;gap:2.2mm;direction:ltr;font-family:Geist;font-weight:700;font-size:19pt;letter-spacing:-.02em}
+.lockup svg{width:1.1em;height:1.1em;fill:#6430f0}
+.head .ar{font-size:11pt;font-weight:600;color:#a58bff}
+.hero{margin-top:18mm;text-align:center}
+h1{font-size:46pt;line-height:1.3;font-weight:700}
+h1 .ac{color:#a58bff}
+.sub{margin-top:5mm;font-size:15pt;line-height:1.7;color:rgba(247,247,251,.82);max-width:150mm;margin-inline:auto}
+.grid{margin-top:14mm;display:grid;grid-template-columns:1fr 1fr;gap:5mm}
+.c{border:0.4mm solid rgba(165,139,255,.35);border-radius:6mm;padding:6mm 6.5mm;display:flex;align-items:center;gap:5mm;background:rgba(255,255,255,.03)}
+.c svg{width:12mm;height:12mm;flex:none;fill:#6430f0;filter:drop-shadow(0 0 3mm rgba(100,48,240,.7))}
+.c b{display:block;font-size:14.5pt;line-height:1.35}
+.c span{display:block;font-size:10.5pt;line-height:1.6;color:rgba(247,247,251,.75);margin-top:1mm}
+.line{margin-top:12mm;text-align:center;font-size:17pt;font-weight:700;line-height:1.5}
+.line small{display:block;font-size:11.5pt;font-weight:400;color:rgba(247,247,251,.8);margin-top:2mm}
+.foot{margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;border-top:0.3mm solid rgba(165,139,255,.3);padding-top:5mm}
+.cta{background:#6430f0;color:#fff;border-radius:99mm;padding:3.6mm 8mm;font-size:12.5pt;font-weight:700;box-shadow:0 0 10mm rgba(100,48,240,.5)}
+.contact{direction:ltr;text-align:left;font-family:Geist;font-weight:700;font-size:12.5pt;letter-spacing:-.01em;line-height:1.6}
+.contact small{display:block;font-family:"IBM Plex Sans Arabic";font-weight:500;font-size:9pt;color:rgba(247,247,251,.7);direction:rtl;text-align:left}
+</style></head><body>
+<div class="glow"></div><div class="vig"></div>
+<svg width="0" height="0" style="position:absolute"><defs><symbol id="m" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12.00 0.80 L14.49 5.99 L19.92 4.08 L18.01 9.51 L23.20 12.00 L18.01 14.49 L19.92 19.92 L14.49 18.01 L12.00 23.20 L9.51 18.01 L4.08 19.92 L5.99 14.49 L0.80 12.00 L5.99 9.51 L4.08 4.08 L9.51 5.99 Z M9.40 8.10 L16.40 12.00 L9.40 15.90 Z"/></symbol></defs></svg>
+<div class="page">
+  <div class="head"><span class="lockup"><svg><use href="#m"/></svg>IraqiStar</span><span class="ar">نجم العراق · من نجوم العراق… إليك</span></div>
+  <div class="hero">
+    <h1>إنت نجم…<br><span class="ac">بعين شخص.</span></h1>
+    <p class="sub">IraqiStar مو بس للمشاهير. كل واحد غيّر حياة شخص، هو نجم بعينه. وهسّة، هذا الشخص يقدر يطلب منك فيديو باسمه، أو يحجز جلسة وياك.</p>
+  </div>
+  <div class="grid">
+    <div class="c"><svg><use href="#m"/></svg><div><b>المعلّم</b><span>نجم بعين طلابه، وبعين الأهل اللي شافوا أطفالهم يتغيّرون قدّامهم.</span></div></div>
+    <div class="c"><svg><use href="#m"/></svg><div><b>المدرّب</b><span>نجم بعين اللاعب اللي أول هدف بحياته كان بفضله.</span></div></div>
+    <div class="c"><svg><use href="#m"/></svg><div><b>الطبيب</b><span>نجم بعين عائلة رجّع إلها الطمأنينة.</span></div></div>
+    <div class="c"><svg><use href="#m"/></svg><div><b>الخبير</b><span>نجم بعين واحد تغيّرت حياته بدورة أو نصيحة منه.</span></div></div>
+    <div class="c"><svg><use href="#m"/></svg><div><b>صانع المحتوى</b><span>نجم بعين متابعين يبدون يومهم بفيديوه.</span></div></div>
+    <div class="c"><svg><use href="#m"/></svg><div><b>الفنان والرياضي</b><span>نجم بعين جمهور حافظ لحظاته غيب.</span></div></div>
+  </div>
+  <div class="line">إذا أكو شخص يعتبرك نجمه، مكانك على IraqiStar.<small>فيديو شخصي باسمهم لمناسباتهم، أو جلسة مباشرة وياك. إنت تحدد سعرك، وتقبل بس اللي يعجبك. الانضمام بالدعوة، ومجاني.</small></div>
+  <div class="foot">
+    <div class="contact">0777 444 1224<small>واتساب واتصال · Taskii، أربيل · Code Slice LLC، الولايات المتحدة</small></div>
+    <span class="cta">iraqistar.com · @iraqistar.iq</span>
+  </div>
+</div>
+</body></html>
