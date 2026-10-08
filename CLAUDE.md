@@ -12,7 +12,7 @@ captions, HTML) and the media that was committed before the switch.
 | Images, audio, HTML, scripts, briefs | Yes | Yes (mirror) |
 | `.git`, `node_modules`, `_old`, `.DS_Store`, `CLAUDE.md`, `.githooks` | n/a | Excluded (`.r2ignore`) |
 
-- R2 public base URL: `R2_PUBLIC_BASE_TODO` (the bucket's r2.dev Public Development URL; replace when known).
+- R2 public base URL: `https://pub-900acba6fdc14d8e9b5f30078459ea16.r2.dev` (the bucket's r2.dev Public Development URL).
 - R2 keys live on Mustafa's Mac at `~/.config/codeslice/r2.env`, never in this repo (the repo is public).
 
 ## Publishing new content
@@ -35,12 +35,14 @@ captions, HTML) and the media that was committed before the switch.
 <R2_PUBLIC_BASE>/<path relative to repo root>
 ```
 Example: `iraqistar/video/teachers-reel/IraqiStar-teachers-reel.mp4`
--> `R2_PUBLIC_BASE_TODO/iraqistar/video/teachers-reel/IraqiStar-teachers-reel.mp4`
+-> `https://pub-900acba6fdc14d8e9b5f30078459ea16.r2.dev/iraqistar/video/teachers-reel/IraqiStar-teachers-reel.mp4`
 
 - Path segments are case-sensitive and must match the file exactly. URL-encode spaces and Arabic
   characters (better: use only `A-Z a-z 0-9 - _ .` in filenames).
 - **Before handing a URL to Meta or Metricool, verify it**: `curl -sI <url>` must return `200` with
   `content-type: video/mp4` (or the image type). A 404 means the sync has not run for that file yet.
+  Claude's sandboxes may be blocked from `r2.dev` by the network allowlist (a 403 with an empty body
+  is the proxy, not R2); in that case ask Mustafa to open the link in a browser instead.
 - **Meta Ads**: upload with the media-upload tool in URL mode using the R2 URL, wait until the video
   status is `ready`, then create the creative. For a video creative pass only one of `image_hash` /
   `image_url` as the thumbnail, never both (Meta rejects it).
