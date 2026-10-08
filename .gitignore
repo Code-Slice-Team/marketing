@@ -1,3 +1,12 @@
 .DS_Store
 _old/
 node_modules/
+
+# Video is hosted on Cloudflare R2 from Oct 2026 (see CLAUDE.md).
+# Videos already committed stay tracked so their raw GitHub URLs keep working.
+*.mp4
+*.MP4
+*.mov
+*.MOV
+*.m4v
+*.webm

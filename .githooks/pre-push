@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Mirror the working folder to Cloudflare R2 before every push, so new media
+# (videos are git-ignored) gets a public URL. Skip once with: SKIP_R2=1 git push
+set -euo pipefail
+export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"   # GUI git clients have a minimal PATH
+
+if [[ "${SKIP_R2:-}" == "1" ]]; then
+  echo "pre-push: SKIP_R2=1, not syncing to R2"
+  exit 0
+fi
+
+root="$(git rev-parse --show-toplevel)"
+echo "pre-push: syncing to Cloudflare R2 (skip once with SKIP_R2=1 git push)"
+if ! "$root/scripts/r2-sync.sh" </dev/null; then
+  echo "pre-push: R2 sync FAILED, push aborted. Fix it, or push without syncing: SKIP_R2=1 git push" >&2
+  exit 1
+fi

@@ -1,0 +1,12 @@
+# Paths never uploaded to Cloudflare R2 (rclone filter syntax).
+# Mirrors .gitignore plus git internals and local junk.
+- .git/**
+- node_modules/**
+- _old/**
+- .DS_Store
+- **/.DS_Store
+- *.env
+- .r2ignore
+- scripts/r2-sync.sh
+- .githooks/**
+- CLAUDE.md
